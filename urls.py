@@ -61,10 +61,3 @@ urlpatterns += patterns('django.views.generic.date_based',
 urlpatterns += patterns('django.views.generic.list_detail',
     url(r'^photo/page/(?P<page>[0-9]+)/$', 'object_list', {'queryset': Photo.objects.all(), 'allow_empty': True, 'paginate_by': 10}),
 )
-
-# tags
-# TODO: move into tag application
-urlpatterns += patterns('django.views.generic.list_detail',
-    url(r'^tag/?$', 'object_list', {'template_name': 'pressroom/tag_list.html', 'queryset': Tag.objects.all()}, name='pr-section-list'),
-    url(r'^tag/(?P<slug>[\-\d\w]+)/$', 'object_detail', {'template_name': 'pressroom/tag_detail.html', 'slug_field': 'name', 'queryset': Tag.objects.all()}, name='pr-section-detail'),
-)
