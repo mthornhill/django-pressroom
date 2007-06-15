@@ -13,7 +13,6 @@ from django.core.validators import ValidationError
 from django.core.urlresolvers import reverse
 from django.dispatch import dispatcher
 from django.template.defaultfilters import slugify
-from django.contrib.auth.models import User
 
 from tagging.fields import TagField
 
