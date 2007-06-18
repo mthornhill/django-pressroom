@@ -387,9 +387,7 @@ def add_methods(sender, instance, signal, *args, **kwargs):
     """ Adds methods to access sized images (urls, paths)
 
     after the photo models __init__ function completes this method calls
-    add_accessor_methods on each instance. The add_Accessor_methods function
-    sets a series of methods of each specified size in self.Config.sizes for
-    easy retrieval of file paths and urls.
+    add_accessor_methods on each instance.
 
     """
     instance.add_accessor_methods()
