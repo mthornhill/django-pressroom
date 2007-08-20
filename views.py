@@ -1,8 +1,7 @@
 from datetime import datetime
 
-from django.http import HttpResponseRedirect
 from django.template.context import RequestContext
-from django.views.generic import date_based, list_detail
+from django.views.generic import list_detail
 from django.shortcuts import render_to_response
 
 from django_apps.pressroom.models import Article, Gallery, Section
