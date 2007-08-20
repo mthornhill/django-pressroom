@@ -5,25 +5,7 @@ from django.template.context import RequestContext
 from django.views.generic import date_based, list_detail
 from django.shortcuts import render_to_response
 
-from django_apps.pressroom.models import Article, Gallery, Photo, PhotoSize, Section
-
-
-def init(request):
-    sizes = {'square': (50, 50, True),
-             'thumbnail': (100, 75, False),
-             'inline': (220, 0, False),
-             'feature': (320, 0, False),
-             'display': (555, 0, False)}
-    for name, params in sizes.iteritems():
-        PhotoSize.objects.create(name=name,
-                                 width = params[0],
-                                 height = params[1],
-                                 crop = params[2])
-    sections = ['News', 'Announcements', 'Events']
-    for section in sections:
-        Section.objects.create(title=section, slug=section.lower())
-    return HttpResponseRedirect('/admin/')
-
+from django_apps.pressroom.models import Article, Gallery, Section
 
 def index(request):
     articles = Article.objects.get_published()[:3]
