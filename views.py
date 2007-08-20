@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 
 from django_apps.pressroom.models import Article, Gallery, Section
 
+
 def index(request):
     articles = Article.objects.get_published()[:3]
     galleries = Gallery.objects.all()[:3]
