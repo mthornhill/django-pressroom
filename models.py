@@ -132,10 +132,14 @@ class Gallery(models.Model):
 
 class GalleryUpload(models.Model):
     id = models.IntegerField(default=1, editable=False, primary_key=True)
-    zip_file = models.FileField('Images file (.zip)', upload_to=PRESSROOM_DIR+"/temp")
-    title_prefix = models.CharField(maxlength=75)
-    caption = models.TextField()
-    description = models.TextField()
+    zip_file = models.FileField('Images file (.zip)',
+                                upload_to=PRESSROOM_DIR+"/temp",
+                                help_text="Select a .zip file of images to upload into a new Gallery.")
+    title_prefix = models.CharField(maxlength=75,
+                                    help_text="Photos will be titled using this prefix.")
+    caption = models.TextField(help_text="Caption will be added to all photos.")
+    description = models.TextField(blank=True,
+                                   help_text="A description of this Gallery.")
     photographer = models.CharField(maxlength=100, blank=True)
     info = models.TextField(blank=True,
                             help_text="Additional information about the photograph such as date taken, equipment used etc..")
