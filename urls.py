@@ -4,7 +4,6 @@ from django_apps.pressroom.models import *
 # custom views
 urlpatterns = patterns('django_apps.pressroom.views',
     url(r'^$', 'index', name="pr-index"),
-    url(r'^init/$', 'init', name="pr-init"),
     url(r'^section/(?P<slug>[\-\d\w]+)/$', 'view_section', name="pr-section"),
     url(r'^section/(?P<slug>[\-\d\w]+)/page/(?P<page>[0-9]+)/$', 'view_section', name="pr-section-page")
 )
