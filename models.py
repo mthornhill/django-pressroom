@@ -17,7 +17,6 @@ from django.template.defaultfilters import slugify
 
 # define our path roots
 PRESSROOM_DIR = 'pressroom'
-PRESSROOM_URL = '/pressroom'
 
 
 # define the models
