@@ -2,7 +2,8 @@ import datetime
 from django import template
 from django.template import resolve_variable
 from django.db.models.loading import get_model
-from django_apps.pressroom.models import Article, PhotoSize
+from django_apps.photologue.models import PhotoSize
+from django_apps.pressroom.models import Article
 
 
 register = template.Library()
