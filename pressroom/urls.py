@@ -20,3 +20,16 @@ urlpatterns += patterns('django.views.generic.date_based',
 urlpatterns += patterns('django.views.generic.list_detail',
     url(r'^article/page/(?P<page>[0-9]+)/$', 'object_list', {'queryset': Article.objects.get_published(), 'allow_empty': True, 'paginate_by': 3}, name='pr-article-list'),
 )
+
+# documents
+document_args = {'date_field': 'pub_date', 'allow_empty': True, 'queryset': Document.objects.all()}
+urlpatterns += patterns('django.views.generic.date_based',
+    url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[\-\d\w]+)/$', 'object_detail', dict(document_args, slug_field='slug'), name='pr-document-detail'),
+    url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'archive_day', document_args, name='pr-document-archive-day'),
+    url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/$', 'archive_month', document_args, name='pr-document-archive-month'),
+    url(r'^document/(?P<year>\d{4})/$', 'archive_year', document_args, name='pr-document-archive-year'),
+    url(r'^document/$', 'archive_index', document_args, name='pr-document-archive'),
+)
+urlpatterns += patterns('django.views.generic.list_detail',
+    url(r'^document/page/(?P<page>[0-9]+)/$', 'object_list', {'queryset': Document.objects.all(), 'allow_empty': True, 'paginate_by': 20}, name='pr-document-list'),
+)
