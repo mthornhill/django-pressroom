@@ -8,7 +8,7 @@ from django_apps.pressroom.models import Article, Section
 
 
 def index(request):
-    articles = Article.objects.get_published()[:3]
+    articles = Article.objects.get_published()[:5]
     try:
         from django_apps.photologue.models import Gallery
         galleries = Gallery.objects.all()[:3]
