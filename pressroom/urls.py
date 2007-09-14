@@ -18,7 +18,7 @@ urlpatterns += patterns('django.views.generic.date_based',
     url(r'^article/$', 'archive_index', article_args, name='pr-article-archive'),
 )
 urlpatterns += patterns('django.views.generic.list_detail',
-    url(r'^article/page/(?P<page>[0-9]+)/$', 'object_list', {'queryset': Article.objects.get_published(), 'allow_empty': True, 'paginate_by': 3}, name='pr-article-list'),
+    url(r'^article/page/(?P<page>[0-9]+)/$', 'object_list', {'queryset': Article.objects.get_published(), 'allow_empty': True, 'paginate_by': 5}, name='pr-article-list'),
 )
 
 # documents
