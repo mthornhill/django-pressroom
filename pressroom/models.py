@@ -1,22 +1,10 @@
-import os
-import zipfile
-import StringIO
-
 from datetime import datetime
-import Image
 
 from django.db import models
-from django.db.models import signals
-from django.db.models.loading import AppCache
 from django.conf import settings
-from django.utils.functional import curry
-from django.core.validators import ValidationError
 from django.core.urlresolvers import reverse
-from django.dispatch import dispatcher
-from django.template.defaultfilters import slugify
 
 from django_apps.photologue.models import Gallery, Photo
-
 
 # Get relative media path
 try:
@@ -116,16 +104,3 @@ class Section(models.Model):
 
     def get_absolute_url(self):
         return reverse('pr-section', args=[self.slug])
-
-
-# Add the TagFields to models if django-tagging is found.
-if "tagging" in AppCache().app_models:
-    try:
-        from tagging.fields import TagField
-    except ImportError:
-        pass
-    else:
-        tag_field = TagField(help_text="Tags may not contain spaces. Seperate \
-                                        multiple tags with a space or comma.")
-        Article.add_to_class('tags', tag_field)
-        Document.add_to_class('tags', tag_field)
