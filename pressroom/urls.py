@@ -42,7 +42,7 @@ document_args = {'date_field': 'pub_date', 'allow_empty': True, 'queryset': Docu
 if MAKE_ARTICLE_OBJECT_LIST:
     year_document_args = dict(document_args, make_object_list=True)
 else:
-    year_document_args = article_args
+    year_document_args = document_args
 urlpatterns += patterns('django.views.generic.date_based',
     url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[\-\d\w]+)/$', 'object_detail', dict(document_args, slug_field='slug'), name='pr-document-detail'),
     url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'archive_day', document_args, name='pr-document-archive-day'),
