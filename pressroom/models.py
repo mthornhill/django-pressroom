@@ -4,7 +4,7 @@ from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
 
-from django_apps.photologue.models import Gallery, Photo
+from photologue.models import Gallery, Photo
 
 # Get relative media path
 try:
@@ -22,12 +22,11 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
     pub_date = models.DateTimeField("Publish date", default=datetime.now)
-    headline = models.CharField(maxlength=200)
-    slug = models.SlugField(prepopulate_from=("headline",),
-                            help_text='A "Slug" is a unique URL-friendly title for an object.')
+    headline = models.CharField(max_length=200)
+    slug = models.SlugField(help_text='A "Slug" is a unique URL-friendly title for an object.')
     summary = models.TextField(help_text="A single paragraph summary or preview of the article.")
     body = models.TextField("Body text")
-    author = models.CharField(maxlength=100)
+    author = models.CharField(max_length=100)
     publish = models.BooleanField("Publish on site", default=True,
                                   help_text='Articles will not appear on the site until their "publish date".')
     sections = models.ManyToManyField('Section', related_name='articles')
@@ -40,12 +39,7 @@ class Article(models.Model):
     class Meta:
         ordering = ['-pub_date']
         get_latest_by = 'pub_date'
-
-    class Admin:
-        list_display = ('headline', 'author', 'pub_date', 'publish')
-        list_filter = ['pub_date']
-        save_as = True
-
+    
     def __unicode__(self):
         return self.headline
 
@@ -57,17 +51,13 @@ class Article(models.Model):
 class Document(models.Model):
     file = models.FileField("Document", upload_to=PRESSROOM_DIR+"/documents/%Y/%b/%d")
     pub_date = models.DateTimeField("Date published", default=datetime.now)
-    title = models.CharField(maxlength=200)
-    slug = models.SlugField(prepopulate_from=('title',))
+    title = models.CharField(max_length=200)
+    slug = models.SlugField()
     summary = models.TextField()
 
     class Meta:
         ordering = ['-pub_date']
         get_latest_by = 'pub_date'
-
-    class Admin:
-        list_display = ('title', 'pub_date')
-        list_filter = ['pub_date']
 
     def __unicode__(self):
         return self.title
@@ -90,14 +80,11 @@ class Document(models.Model):
 
 
 class Section(models.Model):
-    title = models.CharField(maxlength=80, unique=True)
-    slug = models.SlugField(prepopulate_from=('title',))
+    title = models.CharField(max_length=80, unique=True)
+    slug = models.SlugField()
 
     class Meta:
         ordering = ['title']
-
-    class Admin:
-        list_display = ('title',)
 
     def __unicode__(self):
         return self.title
