@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
-from django_apps.pressroom.models import *
+from pressroom.models import *
 
 try:
     MAKE_ARTICLE_OBJECT_LIST = settings.PRESSROOM_MAKE_ARTICLE_OBJECT_LIST
@@ -13,7 +13,7 @@ except:
     MAKE_DOCUMENT_OBJECT_LIST = False
 
 # custom views
-urlpatterns = patterns('django_apps.pressroom.views',
+urlpatterns = patterns('pressroom.views',
     url(r'^$', 'index', name="pr-index"),
     url(r'^section/(?P<slug>[\-\d\w]+)/$', 'view_section', name="pr-section"),
     url(r'^section/(?P<slug>[\-\d\w]+)/page/(?P<page>[0-9]+)/$', 'view_section', name="pr-section-page")
