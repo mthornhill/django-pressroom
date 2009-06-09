@@ -44,7 +44,7 @@ if MAKE_ARTICLE_OBJECT_LIST:
 else:
     year_document_args = document_args
 urlpatterns += patterns('django.views.generic.date_based',
-    url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[\-\d\w]+)/$', 'object_detail', dict(document_args, slug_field='slug'), name='pr-document-detail'),
+    url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[\-\d\w]+)/$', 'object_detail', {'date_field': 'pub_date', 'slug_field': 'slug', 'queryset': Document.objects.all()}, name='pr-document-detail'),
     url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'archive_day', document_args, name='pr-document-archive-day'),
     url(r'^document/(?P<year>\d{4})/(?P<month>[a-z]{3})/$', 'archive_month', document_args, name='pr-document-archive-month'),
     url(r'^document/(?P<year>\d{4})/$', 'archive_year', year_document_args, name='pr-document-archive-year'),
