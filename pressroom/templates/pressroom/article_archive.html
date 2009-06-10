@@ -1,0 +1,21 @@
+{% extends "base_site.html" %}
+
+{% block title %}Latest Articles{% endblock %}
+
+{% block content %}
+<h1>News</h1>
+{% if latest %}
+    {% for article in latest %}
+    <div class="article">
+        <h2>{{ article.headline }}</h2>
+        <div class="article-summary">{{ article.summary }}</div>
+        <div class="article-body">{{ article.body }}</div>
+        <div class="article-pubdate">{{ article.pub_date|date:"M d Y" }}</div>
+    </div>
+    {% endfor %}
+{% else %}
+<p>No articles were found.</p>
+{% endif %}
+{% endblock %}
+
+

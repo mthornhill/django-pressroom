@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
 from pressroom.models import *
+from pressroom.feeds import LatestEntries
+
 
 try:
     MAKE_ARTICLE_OBJECT_LIST = settings.PRESSROOM_MAKE_ARTICLE_OBJECT_LIST
@@ -53,3 +55,12 @@ urlpatterns += patterns('django.views.generic.date_based',
 urlpatterns += patterns('django.views.generic.list_detail',
     url(r'^document/page/(?P<page>[0-9]+)/$', 'object_list', {'queryset': Document.objects.all(), 'allow_empty': True, 'paginate_by': 20}, name='pr-document-list'),
 )
+
+feeds = {
+    'rss': LatestEntries,
+}
+
+urlpatterns += patterns('',
+    (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',  {'feed_dict': feeds}),
+)
+

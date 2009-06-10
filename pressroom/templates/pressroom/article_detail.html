@@ -1,0 +1,38 @@
+{% extends "base_site.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ object.headline }}</h1>
+<div class="article-wrapper">
+{% if object.photos.all %}
+<div class="article-photos">
+{% for p in object.photos.all %}
+<div class="article-photo"><img src="{{ p.get_thumbnail_url }}"/><br/>{{p.caption}}</div>
+{% endfor %}
+</div>
+{% endif %}
+
+<div class="article-body">{{ object.body|safe }}</div>
+<div class="article-author">{{ object.author }}</div>
+<div class="article-pubdate">{{ object.pub_date|date:"F j, Y" }}</div>    
+</div>
+
+{% if object.documents.all %}
+<div class="documents">
+<h2>Related Documents</h2>
+<ul>
+{% for doc in object.documents.all %}
+<li>
+<a href="{{doc.file.url}}">{{doc.title}}</a>
+<br/>
+<small>{{doc.summary}}</small>
+{% endfor %}</li>
+</ul>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+
