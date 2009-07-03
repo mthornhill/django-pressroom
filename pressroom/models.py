@@ -32,6 +32,7 @@ class Article(models.Model):
     sections = models.ManyToManyField('Section', related_name='articles')
     photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True)
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
+    enable_comments = models.BooleanField(default=True)
 
     # Custom article manager
     objects = ArticleManager()
@@ -46,6 +47,15 @@ class Article(models.Model):
     def get_absolute_url(self):
         args = self.pub_date.strftime("%Y/%b/%d").lower().split("/") + [self.slug]
         return reverse('pr-article-detail', args=args)
+
+class ArticleModerator(CommentModerator):
+    email_notification = True
+    enable_field = 'enable_comments'
+    
+    def moderate(self, comment, content_object, request):
+        return True
+
+moderator.register(Article, ArticleModerator)
 
 
 class Document(models.Model):
