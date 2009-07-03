@@ -6,6 +6,8 @@ from django.core.urlresolvers import reverse
 
 from photologue.models import Gallery, Photo
 
+from django.contrib.comments.moderation import CommentModerator, moderator
+
 # Get relative media path
 try:
     PRESSROOM_DIR = settings.PRESSROOM_DIR
