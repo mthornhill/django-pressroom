@@ -50,14 +50,14 @@ class Article(models.Model):
         args = self.pub_date.strftime("%Y/%b/%d").lower().split("/") + [self.slug]
         return reverse('pr-article-detail', args=args)
 
-class ArticleModerator(CommentModerator):
+class ArticleCommentModerator(CommentModerator):
     email_notification = True
     enable_field = 'enable_comments'
     
     def moderate(self, comment, content_object, request):
         return True
 
-moderator.register(Article, ArticleModerator)
+moderator.register(Article, ArticleCommentModerator)
 
 
 class Document(models.Model):
