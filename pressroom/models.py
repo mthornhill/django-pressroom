@@ -1,12 +1,13 @@
-from datetime import datetime
-
 from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.contrib.comments.moderation import CommentModerator, moderator
 
 from photologue.models import Gallery, Photo
 
-from django.contrib.comments.moderation import CommentModerator, moderator
+from datetime import datetime
+import os
+
 
 # Get relative media path
 try:
