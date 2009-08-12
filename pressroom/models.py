@@ -58,8 +58,8 @@ class ArticleCommentModerator(CommentModerator):
     def moderate(self, comment, content_object, request):
         return True
 
-moderator.register(Article, ArticleCommentModerator)
-
+if Article not in moderator._registry:
+    moderator.register(Article, ArticleCommentModerator)
 
 class Document(models.Model):
     file = models.FileField("Document", upload_to=PRESSROOM_DIR+"/documents/%Y/%b/%d")
