@@ -1,7 +1,7 @@
 
 from south.db import db
 from django.db import models
-from gaelgo.pressroom.models import *
+from pressroom.models import *
 
 class Migration:
     
