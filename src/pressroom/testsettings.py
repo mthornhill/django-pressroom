@@ -3,6 +3,10 @@ DIRNAME = os.path.dirname(__file__)
 DEBUG=True
 DATABASE_ENGINE = 'sqlite3'
 DATABASE_NAME = '/tmp/pressroom.db'
+
+MEDIA_ROOT = os.path.realpath(os.path.join(DIRNAME, 'tests', 'media/'))
+MEDIA_URL = '/site_media/'
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
