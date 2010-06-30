@@ -8,7 +8,7 @@ import os
 DIRNAME = os.path.dirname(__file__)
 
 urlpatterns = patterns("",
-    url(r'^$', include('pressroom.urls')),
+    (r'', include('pressroom.urls')),
 )
 
 urlpatterns += patterns("",
