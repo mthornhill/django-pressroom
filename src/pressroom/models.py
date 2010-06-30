@@ -1,20 +1,21 @@
-from django.db import models
-from django.conf import settings
-from django.core.urlresolvers import reverse
-from django.contrib.comments.moderation import CommentModerator, moderator
-
-from photologue.models import Gallery, Photo
-
+# python imports
 from datetime import datetime
 import os
 
+# django imports
+from django.conf import settings
+from django.contrib.comments.moderation import CommentModerator, moderator
+from django.core.urlresolvers import reverse
+from django.db import models
+
+# other imports
+from photologue.models import Gallery, Photo
 
 # Get relative media path
 try:
     PRESSROOM_DIR = settings.PRESSROOM_DIR
 except:
     PRESSROOM_DIR = 'pressroom'
-
 
 # define the models
 class ArticleManager(models.Manager):
@@ -78,19 +79,19 @@ class Document(models.Model):
     def get_absolute_url(self):
         args = self.pub_date.strftime("%Y/%b/%d").lower().split("/") + [self.slug]
         return reverse('pr-document-detail', args=args)
-
+    
     def doc_dir(self):
-        return os.path.dirname(self.get_file_filename())
-
-    def remove_dirs(self):
-        if os.path.isdir(self.doc_dir()):
-            if os.listdir(self.doc_dir()) == []:
-                os.removedirs(self.doc_dir())
+        doc_dir = None
+        if self.file is not None:
+            doc_dir = os.path.dirname(self.file.path) 
+        return doc_dir
 
     def delete(self):
+        doc_dir = self.doc_dir()
         super(Document, self).delete()
-        self.remove_dirs()
-
+        if doc_dir is not None:
+            if os.listdir(doc_dir) == []:
+                    os.removedirs(doc_dir)
 
 class Section(models.Model):
     title = models.CharField(max_length=80, unique=True)
