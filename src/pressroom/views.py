@@ -34,3 +34,10 @@ def view_section(request, slug, page=1):
                                    template_name='pressroom/view_section.html',
                                    extra_context={'section': section,
                                                   'galleries': Gallery.objects.all()[:3]})
+
+def article_list(request, page=0):
+    return list_detail.object_list(request=request,
+                                   queryset=Article.objects.get_published(),
+                                   allow_empty=True,
+                                   paginate_by=5,
+                                   page=page)
