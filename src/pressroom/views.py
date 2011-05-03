@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.template.context import RequestContext
 from django.views.generic import list_detail
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 
 from pressroom.models import Article, Section
 
@@ -19,7 +19,7 @@ def index(request):
 
 
 def view_section(request, slug, page=1):
-    section = Section.objects.get(slug__exact=slug)
+    section = get_object_or_404(Section, slug=slug)
     articles = section.articles.filter(publish=True, pub_date__lte=datetime.now())
     try:
         from photologue.models import Gallery
