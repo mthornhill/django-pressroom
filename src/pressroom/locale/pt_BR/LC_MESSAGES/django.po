@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-22 00:56-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: models.py:30
+msgid "publish date"
+msgstr "data de publicação"
+
+#: models.py:31
+msgid "headline"
+msgstr "titulo"
+
+#: models.py:32
+msgid "A \"Slug\" is a unique URL-friendly title for an object."
+msgstr "A parte do título que é usada na URL"
+
+#: models.py:33
+msgid "A single paragraph summary or preview of the article."
+msgstr "Um parágrafo simples que descreve o artigo"
+
+#: models.py:34
+msgid "body text"
+msgstr "texto"
+
+#: models.py:35
+msgid "author"
+msgstr "autor"
+
+#: models.py:36
+msgid "publish on site"
+msgstr "publicar no site"
+
+#: models.py:37
+msgid "Articles will not appear on the site until their \"publish date\"."
+msgstr "Artigos não irão aparecer no site até a \"data de publicação\"."
+
+#: models.py:38 models.py:109
+msgid "sections"
+msgstr "seções"
+
+#: models.py:39
+msgid "photos"
+msgstr "fotos"
+
+#: models.py:40 models.py:80
+msgid "documents"
+msgstr "documentos"
+
+#: models.py:41
+msgid "enable comments"
+msgstr "habilitar comentários"
+
+#: models.py:49
+msgid "article"
+msgstr "artigo"
+
+#: models.py:50
+msgid "articles"
+msgstr "artigos"
+
+#: models.py:70 models.py:79
+msgid "document"
+msgstr "documento"
+
+#: models.py:71
+msgid "date published"
+msgstr "data publicada"
+
+#: models.py:72 models.py:103
+msgid "title"
+msgstr "título"
+
+#: models.py:73 models.py:104
+msgid "slug"
+msgstr "slug"
+
+#: models.py:74
+msgid "summary"
+msgstr "resumo"
+
+#: models.py:108
+msgid "section"
+msgstr "seção"
