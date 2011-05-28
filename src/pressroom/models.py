@@ -29,7 +29,8 @@ class ArticleManager(models.Manager):
 class Article(models.Model):
     pub_date = models.DateTimeField(_("publish date"), default=datetime.now)
     headline = models.CharField(_("headline"),max_length=200)
-    slug = models.SlugField(help_text=_('A "Slug" is a unique URL-friendly title for an object.'))
+    slug = models.SlugField(help_text=_('A "Slug" is a unique URL-friendly title for an object.'),
+        unique_for_date="pub_date")
     summary = models.TextField(help_text=_("A single paragraph summary or preview of the article."))
     body = models.TextField(_("body text"))
     author = models.CharField(_("author"), max_length=100)
