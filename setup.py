@@ -6,14 +6,14 @@ def read(fname):
 
 setup(
     name = "django-pressroom",
-    version = "0.4",
-    url = 'http://code.google.com/p/django-pressroom/',
+    version = "0.4.1",
+    url = 'https://github.com/petry/django-pressroom',
     license = 'BSD',
     description = "A pressroom application for django.",
     long_description = read('README'),
 
-    author = 'Justin Driscoll, Michael Thornhill',
-    author_email = 'michael@maithu.com',
+    author = 'Justin Driscoll, Michael Thornhill, Marcos Daniel Petry',
+    author_email = 'marcospetry@gmail.com',
 
     packages = find_packages('src'),
     package_dir = {'': 'src'},
@@ -21,7 +21,7 @@ setup(
     install_requires = ['setuptools', 'django-photologue'],
 
     classifiers = [
-        'Development Status :: 4 - Beta',
+        'Development Status :: 4.1 - Beta',
         'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
