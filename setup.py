@@ -10,7 +10,6 @@ setup(
     url = 'https://github.com/petry/django-pressroom',
     license = 'BSD',
     description = "A pressroom application for django.",
-    long_description = read('README'),
 
     author = 'Justin Driscoll, Michael Thornhill, Marcos Daniel Petry',
     author_email = 'marcospetry@gmail.com',
