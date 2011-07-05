@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = "django-pressroom",
-    version = "0.4.1",
+    version = "0.4.2",
     url = 'https://github.com/petry/django-pressroom',
     license = 'BSD',
     description = "A pressroom application for django.",
