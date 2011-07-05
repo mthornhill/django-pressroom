@@ -8,7 +8,8 @@ from pressroom.models import Article, Section
 
 
 def index(request):
-    articles = Article.objects.get_published()[:5]
+    sections = Section.objects.all()
+    articles = Article.objects.get_published()
     try:
         from photologue.models import Gallery
         galleries = Gallery.objects.all()[:3]
