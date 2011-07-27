@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = "django-pressroom",
-    version = "0.4.2",
+    version = "0.4.2.1",
     url = 'https://github.com/petry/django-pressroom',
     license = 'BSD',
     description = "A pressroom application for django.",
@@ -18,9 +18,11 @@ setup(
     package_dir = {'': 'src'},
 
     install_requires = ['setuptools', 'django-photologue'],
-
+    dependency_links = [
+        'http://github.com/petry/django-photologue/tarball/master#egg=django-photologue',
+    ],
     classifiers = [
-        'Development Status :: 4.1 - Beta',
+        'Development Status :: 4.2 - Beta',
         'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
