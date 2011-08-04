@@ -30,7 +30,7 @@ else:
     year_article_args = article_args
 
 urlpatterns += patterns('django.views.generic.date_based',
-    url(r'^article/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[\-\d\w]+)/$', 'object_detail', {'date_field': 'pub_date', 'slug_field': 'slug', 'queryset': Article.objects.all()}, name='pr-article-detail'),
+    url(r'^article/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[\-\d\w]+).html$', 'object_detail', {'date_field': 'pub_date', 'slug_field': 'slug', 'queryset': Article.objects.all()}, name='pr-article-detail'),
     url(r'^article/(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'archive_day', article_args, name='pr-article-archive-day'),
     url(r'^article/(?P<year>\d{4})/(?P<month>[a-z]{3})/$', 'archive_month', article_args, name='pr-article-archive-month'),
     url(r'^article/(?P<year>\d{4})/$', 'archive_year', year_article_args, name='pr-article-archive-year'),
