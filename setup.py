@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name = "django-pressroom",
-    version = "0.5",
+    version = "0.6",
     url = 'http://code.google.com/p/django-pressroom/',
     license = 'BSD',
     description = "A pressroom application for django.",
@@ -19,7 +19,7 @@ setup(
     package_dir = {'': 'src'},
 
     install_requires = ['setuptools', 'django-photologue'],
-
+    include_package_data=True,
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',
