@@ -37,7 +37,7 @@ def load_data():
 
     # create 40 articles
     for i in range(1, 40):
-        headline = words(random.randint(5,10))
+        headline = words(random.randint(5,10), common=False)
         a, created = Article.objects.get_or_create(headline=headline, slug=slugify(headline), body=paragraphs(5), publish=True)
 
         for j in range(0, random.randint(0, 5)):

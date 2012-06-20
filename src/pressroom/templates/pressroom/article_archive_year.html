@@ -1,11 +1,16 @@
 {% extends "pressroom/article_archive.html" %}
+{% load endless %}
 {% block title %}Articles for {{ year }}{% endblock %}
 {% block content %}
     <h2>{% block archive-title %}Articles for {{ year }}{% endblock %}</h2>
     {% if object_list %}
+        {% paginate 10 object_list %}
         {% for article in object_list %}
             {% include "pressroom/includes/article_snippet.html" with article=article %}
         {% endfor %}
+        <div class="pagination">
+            {% show_pages %}
+        </div>
     {% else %}
     <p>No articles were found.</p>
     {% endif %}

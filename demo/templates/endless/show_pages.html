@@ -1,0 +1,5 @@
+<ul>
+{% for page in pages %}
+    <li>{{ page|default_if_none:'<span class="endless_separator"></span>' }}</li>
+{% endfor %}
+</ul>

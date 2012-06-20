@@ -1,14 +1,19 @@
 {% extends "base_site.html" %}
 {% load pressroom_tags %}
+{% load endless %}
 
 {% block title %}Latest Articles{% endblock %}
 
 {% block content %}
 <h2>Blog</h2>
 {% if latest %}
+    {% paginate 10 latest %}
     {% for article in latest %}
         {% include "pressroom/includes/article_snippet.html" with article=article %}
     {% endfor %}
+    <div class="pagination">
+        {% show_pages %}
+    </div>
 {% else %}
 <p>No articles were found.</p>
 {% endif %}
