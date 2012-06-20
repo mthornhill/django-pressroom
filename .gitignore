@@ -17,3 +17,5 @@ develop-eggs/
 dlcache/
 src/django_pressroom.egg-info/
 src/pressroom/tests/media/
+demo/media/photologue
+demo/static
