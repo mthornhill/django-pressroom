@@ -29,7 +29,7 @@ def load_data():
     photos = []
     for word in "make an image for each word in this sentence".split():
         ifn = generate_image(word)
-        photo, created = Photo.objects.get_or_create(title=ifn, title_slug=slugify(ifn), is_public=True)
+        photo, created = Photo.objects.get_or_create(title=ifn, title_slug=slugify(ifn), is_public=True, caption=words(5))
         photo.image.save(os.path.basename(ifn),
             ContentFile(open(ifn, 'rb').read()))
         photos.append(photo)

@@ -1,5 +1,7 @@
 .articles {}
-.article {}
+.article {
+    padding: 5px;
+}
 .article-wrapper {}
 .article-summary {}
 .article-photos {}
