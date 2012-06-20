@@ -23,7 +23,7 @@ except:
 # define the models
 class ArticleManager(models.Manager):
     def get_published(self):
-        return self.filter(publish=True, pub_date__lte=datetime.now).order_by('pub_date')
+        return self.filter(publish=True).order_by('-pub_date')
     def get_drafts(self):
         return self.filter(publish=False)
 

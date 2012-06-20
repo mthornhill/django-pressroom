@@ -7,11 +7,7 @@
         <h1>{{ object.headline }}</h1>
 
         {% if object.photos.all %}
-            <div class="article-photos">
-            {% for p in object.photos.all %}
-                <div class="article-photo"><img src="{{ p.get_thumbnail_url }}"/><br/>{{p.caption}}</div>
-            {% endfor %}
-            </div>
+            {% include "pressroom/includes/photo_snippet.html" with article=object %}
         {% endif %}
 
         <div class="article-body">{{ object.body|safe }}</div>

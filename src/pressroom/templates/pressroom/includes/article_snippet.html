@@ -1,5 +1,9 @@
 <div class="article">
-    <div class="article-photo">{% if article.photos.all %}<img alt="{{article.photos.all.0.title}}" src="{{article.photos.all.0.get_thumbnail_url}}"> {% endif %}</div>
+    {% if article.photos.all %}
+        <div class="article-photos">
+            {% include "pressroom/includes/photo_snippet.html" with photos=article.photos.all %}
+        </div>
+    {% endif %}
     <a href="{{ article.get_absolute_url }}">
         <h3>{{ article.headline }}</h3>
     </a>

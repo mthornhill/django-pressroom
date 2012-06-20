@@ -1,13 +1,13 @@
 {% if articles %}
 <div class="articles">
 	<h2>Articles</h2>
-	<ul>
+	<ol>
 		{% for a in articles %}
 			<li>
 				<a href="{{ a.get_absolute_url }}">{{ a.headline }}</a>
 			</li>
 		{% endfor %}
-	</ul>
+	</ol>
 </div>
 
 {% endif %}

@@ -1,0 +1,94 @@
+
+
+{% if article.photos.count == 1 %}
+    <div class="article-photos" xmlns="http://www.w3.org/1999/html">
+        <ul class="thumbnails">
+            {%  for p in article.photos.all %}
+                <li>
+                    <a data-toggle="modal" href="#myModal" >
+                        <div class="thumbnail well article-photo">
+                            <img src="{{ p.get_thumbnail_url }}" alt="{{ p.caption }}">
+                            <h5>{{ p.title }}</h5>
+                            <p>{{p.caption}}</p>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="modal hide" id="myModal">
+
+        <ul class="thumbnails">
+            {%  for p in article.photos.all %}
+                <li>
+                    <div class="thumbnail well article-photo">
+                        <img src="{{ p.get_display_url }}" alt="{{ p.caption }}">
+                        <h5>{{ p.title }}</h5>
+                        <p>{{p.caption}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% else %}
+    <div class="article-photos">
+        <div id="myCarousel{{ article.uid }}" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                {% for p in article.photos.all %}
+                    <a data-toggle="modal" href="#myModal{{ article.uid }}" >
+                        <div class="thumbnail well article-photo item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ p.get_thumbnail_url }}" alt="{{ p.caption }}">
+                            <h4>{{ p.title }}</h4>
+                            <p>{{p.caption}}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel{{ article.uid }}" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel{{ article.uid }}" data-slide="next">&rsaquo;</a>
+        </div>
+
+        <script type="text/javascript">
+        $('.carousel').carousel({
+            interval: false
+        })
+        </script>
+    </div>
+
+
+    <div class="modal hide" id="myModal{{ article.uid }}">
+        <div id="myBigCarousel{{ article.uid }}" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                {% for p in article.photos.all %}
+                    <div class="thumbnail well article-photo item {% if forloop.first %}active{% endif %}">
+                        <button data-dismiss="modal" class="close" type="button">×</button>
+                        <img src="{{ p.get_display_url }}" alt="{{ p.caption }}">
+                        <div class="carousel-caption">
+                            <h4>{{ p.title }}</h4>
+                            <p>{{p.caption}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myBigCarousel{{ article.uid }}" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myBigCarousel{{ article.uid }}" data-slide="next">&rsaquo;</a>
+        </div>
+
+        <script type="text/javascript">
+            $('.carousel').carousel({
+                interval: false
+            })
+        </script>
+
+    </div>
+{% endif %}
+

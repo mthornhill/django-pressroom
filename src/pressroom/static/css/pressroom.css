@@ -1,12 +1,20 @@
 .articles {}
 .article {
     padding: 5px;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
 }
 .article-wrapper {}
 .article-summary {}
-.article-photos {}
+.article-photos {
+    width: 180px;
+    float: right;
+}
 .article-photo {
     float: right;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
 }
 
 .article-body {}
@@ -19,3 +27,7 @@
 .documents {}
 .document-title {}
 .document-summary {}
+
+.modal {
+    width: 420px;
+}

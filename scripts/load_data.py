@@ -21,15 +21,15 @@ def load_data():
     site.save()
 
     # photologue
-    at = PhotoSize.objects.get_or_create(name='admin_thumbnail', width=100)
+    at = PhotoSize.objects.get_or_create(name='admin_thumbnail', width=80)
     display = PhotoSize.objects.get_or_create(name='display', width=400)
-    fullsize = PhotoSize.objects.get_or_create(name='fullsize', width=600)
-    thumbnail = PhotoSize.objects.get_or_create(name='thumbnail', width=120)
+    fullsize = PhotoSize.objects.get_or_create(name='fullsize', width=800)
+    thumbnail = PhotoSize.objects.get_or_create(name='thumbnail', width=100)
 
     photos = []
     for word in "make an image for each word in this sentence".split():
         ifn = generate_image(word)
-        photo, created = Photo.objects.get_or_create(title=ifn, title_slug=slugify(ifn), is_public=True, caption=words(5))
+        photo, created = Photo.objects.get_or_create(title=word, title_slug=slugify(word), is_public=True, caption=words(5))
         photo.image.save(os.path.basename(ifn),
             ContentFile(open(ifn, 'rb').read()))
         photos.append(photo)
