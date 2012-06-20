@@ -1,9 +1,59 @@
-<!DOCTYPE HTML>
+{% load bootstraped %}
+
+<!doctype html>
 <html>
+<head>
+    {% bootstrap_css %}
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <title>{% block title %}{% endblock %}</title>
+</head>
 <body>
 
-{% block content %}
 
-{% endblock %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Project name</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+            <div class="span2">
+                {% block sidebar %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div> <!-- /container -->
+
+
+{% bootstrap_js all %}
+
 </body>
-</html> 
+</html>

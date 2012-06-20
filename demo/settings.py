@@ -112,6 +112,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'ajax_select',
+    'bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
