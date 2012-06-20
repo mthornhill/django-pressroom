@@ -1,0 +1,2 @@
+
+from demo.settings import *
