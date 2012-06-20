@@ -3,18 +3,21 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Example:
-    # (r'^{{ project_name }}/', include('{{ project_name }}.foo.urls')),
+from ajax_select import urls as ajax_select_urls
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+urlpatterns = patterns("",
+    (r'^admin/lookups/', include(ajax_select_urls)),
+    (r'', include('pressroom.urls')),
+    url(r'^photos/', include('photologue.urls')),
+    url(r'^imperavi/', include('imperavi.urls')),
+    (r'^search/', include('haystack.urls')),
+)
 
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+urlpatterns += patterns("",
+    (r'^admin/', include(admin.site.urls)),
 )
 
 if settings.DEBUG:
