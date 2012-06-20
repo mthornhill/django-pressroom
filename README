@@ -15,7 +15,7 @@ Tracking the Development Version
 
 The current development version of Pressroom can be checked out via Subversion from the project site using the following command:
 
-    svn checkout https://django-pressroom.googlecode.com/svn/trunk django-pressroom
+    git clone https://github.com/mthornhill/django-pressroom.git
 
 If you wish to contribute to pressroom, here is how to set up your development environment
 

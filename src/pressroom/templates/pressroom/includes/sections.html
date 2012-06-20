@@ -1,0 +1,17 @@
+{% if sections %}
+<div class="sections">
+	<h2>Sections</h2>
+	<ul>
+        <li>
+            <a href="{% url pr-article-archive %}">Archive</a>
+        </li>
+		{% for s in sections %}
+			<li>
+				<a href="{{ s.get_absolute_url }}">{{ s.title }}</a>
+			</li>
+		{% endfor %}
+
+	</ul>
+</div>
+
+{% endif %}

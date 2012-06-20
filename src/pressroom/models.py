@@ -28,7 +28,7 @@ class Article(models.Model):
     pub_date = models.DateTimeField("Publish date", default=datetime.now)
     headline = models.CharField(max_length=200)
     slug = models.SlugField(help_text='A "Slug" is a unique URL-friendly title for an object.')
-    summary = models.TextField(help_text="A single paragraph summary or preview of the article.")
+    summary = models.TextField(help_text="A single paragraph summary or preview of the article.", default=u"", null=True, blank=True)
     body = models.TextField("Body text")
     author = models.CharField(max_length=100)
     publish = models.BooleanField("Publish on site", default=True,

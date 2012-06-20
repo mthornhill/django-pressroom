@@ -1,0 +1,17 @@
+<div class="article">
+    <div class="article-photo">{% if article.photos.all %}<img alt="{{article.photos.all.0.title}}" src="{{article.photos.all.0.get_thumbnail_url}}"> {% endif %}</div>
+    <a href="{{ article.get_absolute_url }}">
+        <h3>{{ article.headline }}</h3>
+    </a>
+    <div class="article-summary">
+    {% if article.summary %}
+    {{ article.summary|safe }}
+    {% else %}
+    {{ article.body|safe|truncatewords_html:50 }}
+    {% endif %}
+    </div>
+
+
+    <div class="article-pubdate">{{ article.pub_date|date:"M d Y" }}</div>
+
+</div>

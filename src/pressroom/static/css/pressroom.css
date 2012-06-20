@@ -1,0 +1,19 @@
+.articles {}
+.article {}
+.article-wrapper {}
+.article-summary {}
+.article-photos {}
+.article-photo {
+    float: right;
+}
+
+.article-body {}
+.article-author {}
+.article-pubdate {}
+.article-archive {}
+
+.sections {}
+
+.documents {}
+.document-title {}
+.document-summary {}
