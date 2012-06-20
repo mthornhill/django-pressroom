@@ -1,5 +1,6 @@
 # python imports
 from datetime import datetime
+from django_extensions.db.fields import AutoSlugField
 import os
 
 # django imports
@@ -10,6 +11,8 @@ from django.db import models
 
 # other imports
 from photologue.models import Gallery, Photo
+from django_extensions.db.fields import ModificationDateTimeField, CreationDateTimeField, AutoSlugField, UUIDField
+
 
 # Get relative media path
 try:
@@ -20,14 +23,14 @@ except:
 # define the models
 class ArticleManager(models.Manager):
     def get_published(self):
-        return self.filter(publish=True, pub_date__lte=datetime.now)
+        return self.filter(publish=True, pub_date__lte=datetime.now).order_by('pub_date')
     def get_drafts(self):
         return self.filter(publish=False)
 
 class Article(models.Model):
     pub_date = models.DateTimeField("Publish date", default=datetime.now)
     headline = models.CharField(max_length=200)
-    slug = models.SlugField(help_text='A "Slug" is a unique URL-friendly title for an object.')
+    slug = AutoSlugField(populate_from=('headline',), help_text='A "Slug" is a unique URL-friendly title for an object.')
     summary = models.TextField(help_text="A single paragraph summary or preview of the article.", default=u"", null=True, blank=True)
     body = models.TextField("Body text")
     author = models.CharField(max_length=100)
@@ -37,6 +40,10 @@ class Article(models.Model):
     photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True)
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
     enable_comments = models.BooleanField(default=True)
+
+    modified = ModificationDateTimeField()
+    created = CreationDateTimeField()
+    uid = UUIDField()
 
     # Custom article manager
     objects = ArticleManager()
@@ -66,8 +73,12 @@ class Document(models.Model):
     file = models.FileField("Document", upload_to=PRESSROOM_DIR+"/documents/%Y/%b/%d")
     pub_date = models.DateTimeField("Date published", default=datetime.now)
     title = models.CharField(max_length=200)
-    slug = models.SlugField()
+    slug = AutoSlugField(populate_from=('title',), help_text='A "Slug" is a unique URL-friendly title for an object.')
     summary = models.TextField()
+
+    modified = ModificationDateTimeField()
+    created = CreationDateTimeField()
+    uid = UUIDField()
 
     class Meta:
         ordering = ['-pub_date']
@@ -95,7 +106,11 @@ class Document(models.Model):
 
 class Section(models.Model):
     title = models.CharField(max_length=80, unique=True)
-    slug = models.SlugField()
+    slug = AutoSlugField(populate_from=('title',), help_text='A "Slug" is a unique URL-friendly title for an object.')
+
+    modified = ModificationDateTimeField()
+    created = CreationDateTimeField()
+    uid = UUIDField()
 
     class Meta:
         ordering = ['title']

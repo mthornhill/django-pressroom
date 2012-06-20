@@ -25,6 +25,7 @@ If you wish to contribute to pressroom, here is how to set up your development e
     python bootstrap.py
     bin/buildout -v
     bin/django syncdb
+    bin/django runscript load_data -v2
     bin/django runserver
     
     browse to http://localhost:8000/
