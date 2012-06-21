@@ -1,4 +1,4 @@
-rm /tmp/pressroom.db
+rm pressroom.db
 bin/django syncdb --noinput --all
 bin/django migrate --fake
 bin/django createsuperuser --username=pressroom --email=admin@example.com --noinput
