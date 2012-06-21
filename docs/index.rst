@@ -14,6 +14,7 @@ Contents:
    changelog
    getting_started
    developers
+   todo
 
 
 Indices and tables
