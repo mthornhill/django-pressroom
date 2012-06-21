@@ -10,10 +10,11 @@ from ajax_select import urls as ajax_select_urls
 
 urlpatterns = patterns("",
     (r'^admin/lookups/', include(ajax_select_urls)),
-    (r'', include('pressroom.urls')),
     url(r'^photos/', include('photologue.urls')),
     url(r'^imperavi/', include('imperavi.urls')),
     (r'^search/', include('haystack.urls')),
+    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'', include('pressroom.urls')),
 )
 
 urlpatterns += patterns("",
