@@ -22,3 +22,4 @@ demo/static
 scripts/images
 pressroom.db
 docs/_build/
+demo/whoosh_index
