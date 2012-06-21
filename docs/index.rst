@@ -11,6 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   changelog
+   getting_started
+   developers
 
 
 Indices and tables
