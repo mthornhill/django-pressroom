@@ -21,3 +21,4 @@ demo/media/photologue
 demo/static
 scripts/images
 pressroom.db
+docs/_build/
