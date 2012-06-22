@@ -42,7 +42,7 @@ class Article(models.Model):
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
     enable_comments = models.BooleanField(default=True)
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     modified = ModificationDateTimeField()
     modified_by = models.ForeignKey('auth.User', null=True, blank=True, editable=False, related_name="modified_by")
