@@ -1,12 +1,12 @@
 TODO
 ====
 
-    JSON API with django-tastypie
+    * JSON API with django-tastypie
 
-    Versions with django-reversion
+    * Versions with django-reversion
 
-    Make reversion optional
+    * Make django-reversion optional
 
-    add tagging
+    * add tagging with django-taggit
 
-    Multilingual models
+    * Multilingual models
