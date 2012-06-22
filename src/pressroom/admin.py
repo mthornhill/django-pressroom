@@ -6,7 +6,7 @@ from ajax_select.admin import AjaxSelectAdmin
 import reversion
 
 class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
-    list_display = ('headline', 'author', 'pub_date', 'publish')
+    list_display = ('headline', 'author', 'language', 'pub_date', 'publish', 'modified_by')
     list_filter = ['pub_date']
     date_hierarchy = 'pub_date'
     save_on_top = True

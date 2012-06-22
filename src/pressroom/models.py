@@ -29,6 +29,8 @@ class ArticleManager(models.Manager):
         return self.filter(publish=False)
 
 class Article(models.Model):
+
+    language = models.CharField(max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
     pub_date = models.DateTimeField("Publish date", default=datetime.now)
     headline = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from=('headline',), help_text='A "Slug" is a unique URL-friendly title for an object.')
@@ -41,6 +43,8 @@ class Article(models.Model):
     photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True)
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
     enable_comments = models.BooleanField(default=True)
+
+
 
     tags = TaggableManager(blank=True)
 
@@ -60,7 +64,7 @@ class Article(models.Model):
         return self.headline
 
     def get_absolute_url(self):
-        args = self.pub_date.strftime("%Y/%b/%d").lower().split("/") + [self.slug]
+        args = self.pub_date.strftime("%Y/%b/%d").lower().split("/") + [self.language, self.slug]
         return reverse('pr-article-detail', args=args)
 
 class ArticleCommentModerator(CommentModerator):
