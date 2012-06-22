@@ -11,7 +11,7 @@ def show_sections():
     return {'sections': sections}
 
 @register.inclusion_tag('pressroom/includes/articles.html')
-def show_articles():
+def show_articles(max_to_show=10):
     now = datetime.now()
-    articles = Article.objects.get_published()
+    articles = Article.objects.get_published()[:max_to_show]
     return {'articles': articles}
