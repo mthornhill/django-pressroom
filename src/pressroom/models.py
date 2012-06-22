@@ -24,13 +24,14 @@ except:
 # define the models
 class ArticleManager(models.Manager):
     def get_published(self):
-        return self.filter(publish=True).order_by('-pub_date')
+        return self.filter(publish=True).filter(translation_of=None).order_by('-pub_date')
     def get_drafts(self):
         return self.filter(publish=False)
 
 class Article(models.Model):
 
     language = models.CharField(max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
+    translation_of = models.ForeignKey('Article', null=True, blank=True)
     pub_date = models.DateTimeField("Publish date", default=datetime.now)
     headline = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from=('headline',), help_text='A "Slug" is a unique URL-friendly title for an object.')
