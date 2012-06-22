@@ -9,10 +9,14 @@ class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
     list_display = ('headline', 'author', 'pub_date', 'publish')
     list_filter = ['pub_date']
     date_hierarchy = 'pub_date'
-    save_as = True
+    save_on_top = True
     filter_horizontal=('sections',)
 
     form = make_ajax_form(Article,{'photos':'photos', 'documents': 'documents'})
+
+    def save_model(self, request, obj, form, change):
+        obj.modified_by = request.user
+        obj.save()
 
     
 class DocumentAdmin(admin.ModelAdmin):
