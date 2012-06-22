@@ -45,6 +45,7 @@ class Article(models.Model):
     tags = TaggableManager()
 
     modified = ModificationDateTimeField()
+    modified_by = models.ForeignKey('auth.User', null=True, blank=True, editable=False, related_name="modified_by")
     created = CreationDateTimeField()
     uid = UUIDField()
 
