@@ -137,7 +137,8 @@ INSTALLED_APPS = (
     'reversion',
     'south',
     'tagging',
-    'taggit'
+    'taggit',
+    'tastypie',
 )
 
 INTERNAL_IPS = ('127.0.0.1',)

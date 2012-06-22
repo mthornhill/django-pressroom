@@ -9,7 +9,9 @@ from django.views.generic.dates import ArchiveIndexView, YearArchiveView, DayArc
 from models import Article
 from feeds import LatestEntries
 from views import SectionListView
+from api import ArticleResource
 
+article_resource = ArticleResource()
 
 # custom views
 urlpatterns = patterns('pressroom.views',
@@ -30,4 +32,5 @@ urlpatterns += patterns('',
 # feeds
 urlpatterns += patterns('',
     url(r'^latest/rss/$', LatestEntries(), name="pr-rss"),
+    url(r'^api/', include(article_resource.urls)),
 )

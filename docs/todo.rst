@@ -1,7 +1,7 @@
 TODO
 ====
-    * add tagging with django-taggit
-
     * JSON API with django-tastypie
+
+    * Add last modified by user to Article model
 
     * Multilingual models
