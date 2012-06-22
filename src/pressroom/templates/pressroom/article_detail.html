@@ -46,6 +46,13 @@
 {% endblock %}
 
 {% block sidebar %}
+    {% if object.translationof_set.all %}
+        <h2>Translations</h2>
+        {% for t in object.translationof_set.all %}
+            <span class="label label-info"><a href="{{ t.get_absolute_url }}">{{ t.headline }}</a></span>
+        {% endfor %}
+    {% endif  %}
+
     {% if object.tags.all %}
         <h2>Tags</h2>
         {% for tag in object.tags.all %}
