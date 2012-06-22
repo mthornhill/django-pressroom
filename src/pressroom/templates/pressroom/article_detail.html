@@ -45,5 +45,12 @@
 
 {% endblock %}
 
-
-
+{% block sidebar %}
+    {% if object.tags.all %}
+        <h2>Tags</h2>
+        {% for tag in object.tags.all %}
+            <span class="label label-info">{{ tag }}</span>
+        {% endfor %}
+    {% endif  %}
+    {{ block.super }}
+{% endblock %}

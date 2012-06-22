@@ -12,6 +12,7 @@ from django.db import models
 # other imports
 from photologue.models import Gallery, Photo
 from django_extensions.db.fields import ModificationDateTimeField, CreationDateTimeField, AutoSlugField, UUIDField
+from taggit.managers import TaggableManager
 
 
 # Get relative media path
@@ -40,6 +41,8 @@ class Article(models.Model):
     photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True)
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
     enable_comments = models.BooleanField(default=True)
+
+    tags = TaggableManager()
 
     modified = ModificationDateTimeField()
     created = CreationDateTimeField()

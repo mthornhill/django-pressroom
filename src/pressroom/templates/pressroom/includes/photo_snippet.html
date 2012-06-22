@@ -53,12 +53,6 @@
             <a class="carousel-control left" href="#myCarousel{{ article.uid }}" data-slide="prev">&lsaquo;</a>
             <a class="carousel-control right" href="#myCarousel{{ article.uid }}" data-slide="next">&rsaquo;</a>
         </div>
-
-        <script type="text/javascript">
-        $('.carousel').carousel({
-            interval: false
-        })
-        </script>
     </div>
 
 
@@ -82,13 +76,14 @@
             <a class="carousel-control left" href="#myBigCarousel{{ article.uid }}" data-slide="prev">&lsaquo;</a>
             <a class="carousel-control right" href="#myBigCarousel{{ article.uid }}" data-slide="next">&rsaquo;</a>
         </div>
+    </div>
 
-        <script type="text/javascript">
+    <script type="text/javascript">
+        $(document).ready(function() {
             $('.carousel').carousel({
                 interval: false
             })
-        </script>
-
-    </div>
+        });
+    </script>
 {% endif %}
 
