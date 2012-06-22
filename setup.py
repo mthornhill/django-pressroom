@@ -23,7 +23,8 @@ setup(
                         'django-extensions',
                         'django-ajax-selects',
                         'django-endless-pagination',
-                        'django-imperavi'],
+                        'django-imperavi',
+                        'django-reversion'],
     include_package_data=True,
     classifiers = [
         'Development Status :: 4 - Beta',

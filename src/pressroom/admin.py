@@ -3,8 +3,9 @@ from models import Article, Document, Section
 from imperavi.admin import ImperaviAdmin
 from ajax_select import make_ajax_form
 from ajax_select.admin import AjaxSelectAdmin
+import reversion
 
-class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin):
+class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
     list_display = ('headline', 'author', 'pub_date', 'publish')
     list_filter = ['pub_date']
     date_hierarchy = 'pub_date'

@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'imperavi',
     'pressroom',
     'photologue',
+    'reversion',
     'south',
     'tagging',
 )
@@ -154,12 +155,12 @@ AJAX_SELECT_INLINES = 'inline'
 
 # haystack configuration
 HAYSTACK_SITECONF = 'demo.search_sites'
-#HAYSTACK_SEARCH_ENGINE = 'whoosh'
-#HAYSTACK_WHOOSH_PATH = os.path.join(DIRNAME, 'whoosh_index')
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = os.path.join(DIRNAME, 'whoosh_index')
 
 # xapian is required for faceted search
-HAYSTACK_SEARCH_ENGINE = 'xapian'
-HAYSTACK_XAPIAN_PATH = os.path.join(DIRNAME, 'xapian_index')
+#HAYSTACK_SEARCH_ENGINE = 'xapian'
+#HAYSTACK_XAPIAN_PATH = os.path.join(DIRNAME, 'xapian_index')
 
 
 # A sample logging configuration. The only tangible logging
