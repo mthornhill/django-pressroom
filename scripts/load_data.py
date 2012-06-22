@@ -10,7 +10,7 @@ from django.contrib.webdesign.lorem_ipsum import paragraphs, sentence, words
 from django.contrib.sites.models import Site
 
 from photologue.models import Photo, PhotoSize
-from pressroom.models import Article
+from pressroom.models import Article, Section
 
 DIRNAME=os.path.dirname(__file__)
 
@@ -38,7 +38,15 @@ def load_data():
     # create 40 articles
     for i in range(1, 40):
         headline = words(random.randint(5,10), common=False)
-        a, created = Article.objects.get_or_create(headline=headline, slug=slugify(headline), body=paragraphs(5), publish=True)
+        a, created = Article.objects.get_or_create( headline=headline,
+                                                    slug=slugify(headline),
+                                                    author=words(1,common=False),
+                                                    body=paragraphs(5),
+                                                    publish=True)
+
+        section, created = Section.objects.get_or_create(title=words(1,common=False))
+        a.sections.add(section)
+        a.save()
 
         for j in range(0, random.randint(0, 5)):
             a.photos.add(photos[j])

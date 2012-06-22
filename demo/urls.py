@@ -12,7 +12,6 @@ urlpatterns = patterns("",
     (r'^admin/lookups/', include(ajax_select_urls)),
     url(r'^photos/', include('photologue.urls')),
     url(r'^imperavi/', include('imperavi.urls')),
-    (r'^search/', include('haystack.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'', include('pressroom.urls')),
 )
@@ -27,3 +26,21 @@ if settings.DEBUG:
          {'document_root': settings.MEDIA_ROOT}),
     )
 
+
+try:
+    from haystack.query import SearchQuerySet
+    from haystack.views import FacetedSearchView
+    from haystack.forms import FacetedSearchForm
+
+    sqs = SearchQuerySet().facet('author').facet('sections')
+
+    urlpatterns += patterns('haystack.views',
+        url(r'^search/$', FacetedSearchView(
+            template='search/search.html',
+            searchqueryset=sqs,
+            form_class=FacetedSearchForm
+        ), name='haystack_search'),
+    )
+except ImportError, e:
+    # haystack is optional
+    pass

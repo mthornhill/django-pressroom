@@ -15,3 +15,9 @@ def show_articles(max_to_show=10):
     now = datetime.now()
     articles = Article.objects.get_published()[:max_to_show]
     return {'articles': articles}
+
+
+@register.filter
+def pdb(element):
+    import pdb; pdb.set_trace()
+    return element
