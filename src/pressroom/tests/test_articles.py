@@ -41,3 +41,32 @@ class PressroomTests(TestCase):
         published_articles = Article.objects.get_published()
         self.assertEqual(1, len(published_articles))
 
+
+    def test_canonical_published(self):
+
+        headline = words(random.randint(5,10), common=False)
+        a1, created = Article.objects.get_or_create( headline=headline,
+            slug=slugify(headline),
+            summary=sentence(),
+            author=words(1,common=False),
+            body=paragraphs(5),
+            publish=True)
+
+        a2, created = Article.objects.get_or_create( headline=headline,
+            slug=slugify(headline),
+            summary=sentence(),
+            author=words(1,common=False),
+            body=paragraphs(5),
+            publish=True)
+
+        self.assertEqual(2, len(Article.objects.get_published()))
+
+        # set a2 to be a translation of a1
+        a2.translation_of = a1
+        a2.save()
+
+        # we only expect 1 canonical object now as a2 is a translation of a1
+        self.assertEqual(1, len(Article.objects.get_published()))
+
+
+
