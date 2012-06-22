@@ -23,3 +23,4 @@ scripts/images
 pressroom.db
 docs/_build/
 demo/whoosh_index
+demo/xapian_index
