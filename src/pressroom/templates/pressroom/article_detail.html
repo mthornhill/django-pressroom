@@ -47,15 +47,18 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% if object.translations.all %}
+    {% if object.translations.all or object.translation_of %}
         <h2>Translations</h2>
         <ul>
-            <li><a href="{{ object.get_absolute_url }}">{{ object.headline }} ({{ object.language }})</a></li>
-        {% for t in object.translations.all %}
-            <li><a href="{{ t.get_absolute_url }}">{{ t.headline }} ({{ t.language }})</a></li>
-        {% endfor %}
+            {% for t in object.translations.all %}
+                <li><a href="{{ t.get_absolute_url }}">{{ t.headline }} ({{ t.language }})</a></li>
+            {% endfor %}
+            {% if object.translation_of %}
+                <li><a href="{{ object.translation_of.get_absolute_url }}">{{ object.translation_of.headline }} ({{ object.translation_of.language }})</a></li>
+            {% endif %}
         </ul>
     {% endif  %}
+
 
     {% if object.tags.all %}
         <h2>Tags</h2>

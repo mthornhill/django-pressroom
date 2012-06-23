@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.shortcuts import get_object_or_404
+from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic import dates
 
@@ -30,6 +31,7 @@ class CurrentLanguageMixin(object):
     def get_queryset(self):
         # we only get LANGUAGE_CODE if we have 'django.middleware.locale.LocaleMiddleware', in middleware
         if hasattr(self.request, 'LANGUAGE_CODE'):
+            import ipdb; ipdb.set_trace()
             return Article.objects.filter(publish=True).filter(language=self.request.LANGUAGE_CODE)
 
         return super(CurrentLanguageMixin, self).get_queryset()
@@ -45,3 +47,8 @@ class ArticleMonthArchiveView(CurrentLanguageMixin, dates.MonthArchiveView):
 
 class ArticleDayArchiveView(CurrentLanguageMixin, dates.DayArchiveView):
     pass
+
+class ArticleDetailView(DetailView):
+    def get_queryset(self):
+        # we allow viewing of any article no matter what the current language code
+        return Article.objects.filter(publish=True)
