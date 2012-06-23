@@ -2,7 +2,7 @@ from ajax_select import LookupChannel
 from django.utils.html import escape
 from django.db.models import Q
 from photologue.models import Photo
-from models import Document
+from models import Document, Article
 
 class PhotoLookup(LookupChannel):
 
@@ -41,3 +41,22 @@ class DocumentLookup(LookupChannel):
     def format_item_display(self,obj):
         """ (HTML) formatted item for displaying item in the selected deck area """
         return u"%s<div><b>%s</b></div><div><i>%s</i></div>" % (escape(obj.file), escape(obj.title),escape(obj.summary))
+
+class ArticleLookup(LookupChannel):
+
+    model = Article
+
+    def get_query(self,q,request):
+        return Article.objects.filter(Q(headline__istartswith=q) | Q(summary__icontains=q) | Q(body__icontains=q)).order_by('headline')
+
+    def get_result(self,obj):
+        u""" result is the simple text that is the completion of what the person typed """
+        return obj.headline
+
+    def format_match(self,obj):
+        """ (HTML) formatted item for display in the dropdown """
+        return self.format_item_display(obj)
+
+    def format_item_display(self,obj):
+        """ (HTML) formatted item for displaying item in the selected deck area """
+        return u"%s<div><b>%s</b></div>" % (escape(obj.headline), escape(obj.summary))

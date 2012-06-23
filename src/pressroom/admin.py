@@ -13,7 +13,7 @@ class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
     save_on_top = True
     filter_horizontal=('sections',)
 
-    form = make_ajax_form(Article,{'photos':'photos', 'documents': 'documents'})
+    form = make_ajax_form(Article,{'photos':'photos', 'documents': 'documents', 'translation_of': 'articles'})
 
     def save_model(self, request, obj, form, change):
         obj.modified_by = request.user

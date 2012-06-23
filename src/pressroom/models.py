@@ -30,12 +30,12 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
 
-    pub_date = models.DateTimeField("Publish date", default=datetime.now)
     headline = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from=('headline',), help_text='A "Slug" is a unique URL-friendly title for an object.')
     summary = models.TextField(help_text="A single paragraph summary or preview of the article.", default=u"", null=True, blank=True)
     body = models.TextField("Body text")
     author = models.CharField(max_length=100)
+    pub_date = models.DateTimeField("Publish date", default=datetime.now)
     publish = models.BooleanField("Publish on site", default=True,
                                   help_text='Articles will not appear on the site until their "publish date".')
     sections = models.ManyToManyField('Section', related_name='articles', null=True, blank=True)

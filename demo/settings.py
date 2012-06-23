@@ -157,6 +157,7 @@ AJAX_LOOKUP_CHANNELS = {
     #   pass a dict with the model and the field to search against
     'photos'  : ('pressroom.lookups', 'PhotoLookup'),
     'documents'  : ('pressroom.lookups', 'DocumentLookup'),
+    'articles'  : ('pressroom.lookups', 'ArticleLookup'),
     }
 
 # magically include jqueryUI/js/css
