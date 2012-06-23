@@ -13,6 +13,7 @@ urlpatterns = patterns("",
     url(r'^photos/', include('photologue.urls')),
     url(r'^imperavi/', include('imperavi.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^i18n/', include('django.conf.urls.i18n')),
     (r'', include('pressroom.urls')),
 )
 

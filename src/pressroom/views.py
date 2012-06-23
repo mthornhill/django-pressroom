@@ -31,6 +31,7 @@ class CurrentLanguageMixin(object):
         """ Filter the queryset by the current language. """
         filters = {}
 
+        # we only get LANGUAGE_CODE if we have 'django.middleware.locale.LocaleMiddleware', in middleware
         if hasattr(self.request, 'LANGUAGE_CODE'):
             # todo replace canonical article with their LANGUAGE_CODE translation
             pass

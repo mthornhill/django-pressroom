@@ -1,5 +1,5 @@
 {% load bootstraped %}
-
+{% load i18n %}
 <!doctype html>
 <html>
 <head>
@@ -32,10 +32,26 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
-            <form class="form-search form-inline" action="/search/">
+
+            <form class="navbar-form pull-right" action="/i18n/setlang/" method="post">
+                {% csrf_token %}
+                {% get_current_language as LANGUAGE_CODE %}
+                <select class="language" name="language">
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option class="options" value="{{ language.code }}" {% ifequal language.code LANGUAGE_CODE %}selected{% endifequal %}>{{ language.name_local }}</option>
+                    {% endfor %}
+                </select>
+                <input class="btn" type="submit" value="Go" />
+            </form>
+
+
+            <form class="navbar-form pull-right" action="/search/">
                 <input id="id_q" type="text" class="input-medium search-query" name="q">
                 <button type="submit" class="btn">Search <i class="icon-search"></i></button>
             </form>
+
+
         </div>
     </div>
 </div>
