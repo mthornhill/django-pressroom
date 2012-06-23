@@ -12,11 +12,10 @@ class SectionListView(ListView):
     template_name = "pressroom/view_section.html"
     def get_queryset(self):
         self.section = get_object_or_404(Section, slug__iexact=self.kwargs['slug'])
+        articles = self.section.articles.filter(publish=True, pub_date__lte=datetime.now())
         if hasattr(self.request, 'LANGUAGE_CODE'):
-            return self.section.articles.filter(publish=True, language=self.request.LANGUAGE_CODE, pub_date__lte=datetime.now())
-
-        return self.section.articles.filter(publish=True, pub_date__lte=datetime.now())
-
+            articles = articles.filter(language=self.request.LANGUAGE_CODE)
+        return articles
 
 class CurrentLanguageMixin(object):
     """
