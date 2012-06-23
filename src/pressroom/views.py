@@ -12,6 +12,9 @@ class SectionListView(ListView):
     template_name = "pressroom/view_section.html"
     def get_queryset(self):
         self.section = get_object_or_404(Section, slug__iexact=self.kwargs['slug'])
+        if hasattr(self.request, 'LANGUAGE_CODE'):
+            return self.section.articles.filter(publish=True, language=self.request.LANGUAGE_CODE, pub_date__lte=datetime.now())
+
         return self.section.articles.filter(publish=True, pub_date__lte=datetime.now())
 
 
@@ -31,7 +34,7 @@ class CurrentLanguageMixin(object):
     def get_queryset(self):
         # we only get LANGUAGE_CODE if we have 'django.middleware.locale.LocaleMiddleware', in middleware
         if hasattr(self.request, 'LANGUAGE_CODE'):
-            return Article.objects.filter(publish=True).filter(language=self.request.LANGUAGE_CODE)
+            return Article.objects.filter(publish=True, language=self.request.LANGUAGE_CODE)
 
         return super(CurrentLanguageMixin, self).get_queryset()
 
