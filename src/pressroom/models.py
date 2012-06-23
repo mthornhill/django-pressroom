@@ -40,13 +40,10 @@ class Article(models.Model):
     author = models.CharField(max_length=100)
     publish = models.BooleanField("Publish on site", default=True,
                                   help_text='Articles will not appear on the site until their "publish date".')
-    sections = models.ManyToManyField('Section', related_name='articles')
+    sections = models.ManyToManyField('Section', related_name='articles', null=True, blank=True)
     photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True)
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
     enable_comments = models.BooleanField(default=True)
-
-
-
     tags = TaggableManager(blank=True)
 
     modified = ModificationDateTimeField()
