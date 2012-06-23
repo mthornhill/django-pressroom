@@ -31,7 +31,6 @@ class CurrentLanguageMixin(object):
     def get_queryset(self):
         # we only get LANGUAGE_CODE if we have 'django.middleware.locale.LocaleMiddleware', in middleware
         if hasattr(self.request, 'LANGUAGE_CODE'):
-            import ipdb; ipdb.set_trace()
             return Article.objects.filter(publish=True).filter(language=self.request.LANGUAGE_CODE)
 
         return super(CurrentLanguageMixin, self).get_queryset()
