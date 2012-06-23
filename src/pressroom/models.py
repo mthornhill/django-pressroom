@@ -30,8 +30,6 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
 
-    language = models.CharField(max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
-    translation_of = models.ForeignKey('Article', null=True, blank=True)
     pub_date = models.DateTimeField("Publish date", default=datetime.now)
     headline = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from=('headline',), help_text='A "Slug" is a unique URL-friendly title for an object.')
@@ -45,6 +43,9 @@ class Article(models.Model):
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
     enable_comments = models.BooleanField(default=True)
     tags = TaggableManager(blank=True)
+
+    language = models.CharField(max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
+    translation_of = models.ForeignKey('Article', null=True, blank=True)
 
     modified = ModificationDateTimeField()
     modified_by = models.ForeignKey('auth.User', null=True, blank=True, editable=False, related_name="modified_by")
