@@ -28,15 +28,11 @@ class CurrentLanguageMixin(object):
     month_format = "%m"
 
     def get_queryset(self):
-        """ Filter the queryset by the current language. """
-        filters = {}
-
         # we only get LANGUAGE_CODE if we have 'django.middleware.locale.LocaleMiddleware', in middleware
         if hasattr(self.request, 'LANGUAGE_CODE'):
-            # todo replace canonical article with their LANGUAGE_CODE translation
-            pass
+            return Article.objects.filter(publish=True).filter(language=self.request.LANGUAGE_CODE)
 
-        return super(CurrentLanguageMixin, self).get_queryset().filter(**filters)
+        return super(CurrentLanguageMixin, self).get_queryset()
 
 class ArticleArchiveIndexView(CurrentLanguageMixin, dates.ArchiveIndexView):
     pass

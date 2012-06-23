@@ -45,7 +45,7 @@ class Article(models.Model):
     tags = TaggableManager(blank=True)
 
     language = models.CharField(max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
-    translation_of = models.ForeignKey('Article', null=True, blank=True)
+    translation_of = models.ForeignKey('self', null=True, blank=True, related_name='translations')
 
     modified = ModificationDateTimeField()
     modified_by = models.ForeignKey('auth.User', null=True, blank=True, editable=False, related_name="modified_by")
