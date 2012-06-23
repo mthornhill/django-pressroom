@@ -7,7 +7,8 @@ import reversion
 
 class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
     list_display = ('headline', 'author', 'language', 'pub_date', 'publish', 'modified_by')
-    list_filter = ['pub_date']
+    search_fields = ('headline', 'author', 'summary', 'body')
+    list_filter = ['pub_date', 'author', 'language']
     date_hierarchy = 'pub_date'
     save_on_top = True
     filter_horizontal=('sections',)
@@ -18,7 +19,19 @@ class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
         obj.modified_by = request.user
         obj.save()
 
-    
+    def formfield_for_dbfield(self, field, **kwargs):
+        if field.name == 'author':
+            author = u''
+            if 'request' in kwargs:
+                request = kwargs['request']
+                if request.user:
+                    if request.user.get_full_name():
+                        author = request.user.get_full_name()
+                    elif request.user.username:
+                        author = request.user.username
+            kwargs['initial'] = author
+        return super(ArticleAdmin, self).formfield_for_dbfield(field, **kwargs)
+
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ('title', 'pub_date')
     list_filter = ['pub_date']
