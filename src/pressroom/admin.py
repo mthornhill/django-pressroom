@@ -3,9 +3,8 @@ from models import Article, Document, Section
 from imperavi.admin import ImperaviAdmin
 from ajax_select import make_ajax_form
 from ajax_select.admin import AjaxSelectAdmin
-import reversion
 
-class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin, reversion.VersionAdmin):
+class ArticleAdmin(ImperaviAdmin, AjaxSelectAdmin):
     list_display = ('headline', 'author', 'language', 'pub_date', 'publish', 'modified_by')
     search_fields = ('headline', 'author', 'summary', 'body')
     list_filter = ['pub_date', 'author', 'language']

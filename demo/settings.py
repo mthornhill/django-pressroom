@@ -142,7 +142,6 @@ INSTALLED_APPS = (
     'imperavi',
     'pressroom',
     'photologue',
-    'reversion',
     'south',
     'tagging',
     'taggit',

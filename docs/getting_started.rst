@@ -15,6 +15,7 @@ django-haystack
 django-endless-pagination
 south
 django-tagging
+django-taggit
 ======  ======
 
 Installation
@@ -40,6 +41,11 @@ Add the following to your *settings.py*, e.g.::
     AJAX_SELECT_BOOTSTRAP = True
     AJAX_SELECT_INLINES = 'inline'
 
+    from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+    TEMPLATE_CONTEXT_PROCESSORS += (
+        'django.core.context_processors.request',
+        )
+
 Add::
 
     'ajax_select',
@@ -60,6 +66,7 @@ Add::
     'photologue',
     'south',
     'tagging',
+    'taggit',
 
 
 to the ``INSTALLED_APPS`` in your *settings.py* if they don't exist already.
