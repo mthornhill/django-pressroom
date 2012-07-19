@@ -13,6 +13,7 @@ If you wish to contribute to pressroom, here is how to set up your development e
     cd django-pressroom
     virtualenv . --no-site-packages
     source bin/activate
+    mkdir dlcache
     python bootstrap.py
     bin/buildout -v
     ./setupdatabase.sh
