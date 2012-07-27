@@ -63,7 +63,7 @@ class Article(models.Model):
         return self.headline
 
     def get_absolute_url(self):
-        args = self.pub_date.strftime("%Y/%b/%d").lower().split("/") + [self.language, self.slug]
+        args = self.pub_date.strftime("%Y/%m/%d").lower().split("/") + [self.language, self.slug]
         return reverse('pr-article-detail', args=args)
 
 class ArticleCommentModerator(CommentModerator):
