@@ -2,6 +2,7 @@
 from south.db import db
 from django.db import models
 from pressroom.models import *
+import datetime
 
 class Migration:
     
