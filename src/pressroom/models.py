@@ -8,6 +8,8 @@ from django.conf import settings
 from django.contrib.comments.moderation import CommentModerator, moderator
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
+
 
 # other imports
 from photologue.models import Gallery, Photo
@@ -30,26 +32,27 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
 
-    headline = models.CharField(max_length=200)
-    slug = AutoSlugField(populate_from=('headline',), help_text='A "Slug" is a unique URL-friendly title for an object.')
-    summary = models.TextField(help_text="A single paragraph summary or preview of the article.", default=u"", null=True, blank=True)
-    body = models.TextField("Body text")
-    author = models.CharField(max_length=100)
-    pub_date = models.DateTimeField("Publish date", default=datetime.now)
-    publish = models.BooleanField("Publish on site", default=True,
-                                  help_text='Articles will not appear on the site until their "publish date".')
-    sections = models.ManyToManyField('Section', related_name='articles', null=True, blank=True)
-    photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True)
-    documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True)
-    enable_comments = models.BooleanField(default=True)
+    headline = models.CharField(_("headline"),max_length=200)
+    slug = models.SlugField(help_text=_('A "Slug" is a unique URL-friendly title for an object.'),
+        unique_for_date="pub_date")
+    summary = models.TextField(help_text=_("A single paragraph summary or preview of the article."))
+    body = models.TextField(_("body text"))
+    author = models.CharField(_("author"), max_length=100)
+    pub_date = models.DateTimeField(_("publish date"), default=datetime.now)
+    publish = models.BooleanField(_("publish on site"), default=True,
+        help_text=_('Articles will not appear on the site until their "publish date".'))
+    sections = models.ManyToManyField('Section', related_name='articles', verbose_name=_('sections'))
+    photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True, verbose_name=_('photos'))
+    documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True, verbose_name=_('documents'))
+    enable_comments = models.BooleanField(_('enable comments'),default=True)
     tags = TaggableManager(blank=True)
 
-    language = models.CharField(max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
-    translation_of = models.ForeignKey('self', null=True, blank=True, related_name='translations')
+    language = models.CharField(_('language'), max_length=10, default=settings.LANGUAGE_CODE, choices=settings.LANGUAGES)
+    translation_of = models.ForeignKey('self', verbose_name=_('translation_of'), null=True, blank=True, related_name='translations')
 
-    modified = ModificationDateTimeField()
-    modified_by = models.ForeignKey('auth.User', null=True, blank=True, editable=False, related_name="modified_by")
-    created = CreationDateTimeField()
+    modified = ModificationDateTimeField(verbose_name=_('modified'))
+    modified_by = models.ForeignKey('auth.User', null=True, blank=True, editable=False, related_name="modified_by", verbose_name=_('modified_by'))
+    created = CreationDateTimeField(verbose_name=_('created'))
     uid = UUIDField()
 
     # Custom article manager
@@ -77,14 +80,14 @@ if Article not in moderator._registry:
     moderator.register(Article, ArticleCommentModerator)
 
 class Document(models.Model):
-    file = models.FileField("Document", upload_to=PRESSROOM_DIR+"/documents/%Y/%b/%d")
-    pub_date = models.DateTimeField("Date published", default=datetime.now)
-    title = models.CharField(max_length=200)
-    slug = AutoSlugField(populate_from=('title',), help_text='A "Slug" is a unique URL-friendly title for an object.')
-    summary = models.TextField()
+    file = models.FileField(_("document"), upload_to=PRESSROOM_DIR+"/documents/%Y/%b/%d")
+    pub_date = models.DateTimeField(_("date published"), default=datetime.now)
+    title = models.CharField(_('title'), max_length=200)
+    slug = AutoSlugField(populate_from=('title',), help_text=_('A "Slug" is a unique URL-friendly title for an object.'))
+    summary = models.TextField(_('summary'))
 
-    modified = ModificationDateTimeField()
-    created = CreationDateTimeField()
+    modified = ModificationDateTimeField(verbose_name=_('modified'))
+    created = CreationDateTimeField(verbose_name=_('created'))
     uid = UUIDField()
 
     class Meta:
@@ -112,8 +115,8 @@ class Document(models.Model):
                     os.removedirs(doc_dir)
 
 class Section(models.Model):
-    title = models.CharField(max_length=80, unique=True)
-    slug = AutoSlugField(populate_from=('title',), help_text='A "Slug" is a unique URL-friendly title for an object.')
+    title = models.CharField(_('title'), max_length=80, unique=True)
+    slug = AutoSlugField(populate_from=('title',), help_text=_('A "Slug" is a unique URL-friendly title for an object.'))
 
     modified = ModificationDateTimeField()
     created = CreationDateTimeField()

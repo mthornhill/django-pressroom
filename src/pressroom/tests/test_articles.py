@@ -1,19 +1,8 @@
 import random
 from django.template.defaultfilters import slugify
 from django.test import TestCase
-from django.contrib.webdesign.lorem_ipsum import paragraphs, sentence, words
-from pressroom.models import Article
 
 class PressroomTests(TestCase):
-
-
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-
     def test_environment(self):
         """Just make sure everything is set up correctly."""
         self.assert_(True)
