@@ -195,6 +195,3 @@ LOGGING = {
         },
     }
 }
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-

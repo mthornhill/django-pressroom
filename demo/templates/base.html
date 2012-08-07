@@ -1,4 +1,4 @@
-{% load bootstrap %}
+{% load bootstraped %}
 {% load i18n %}
 <!doctype html>
 <html>
@@ -15,52 +15,61 @@
 </head>
 <body>
 
-<div style="z-index: 5;" class="topbar-wrapper">
-    <div data-dropdown="dropdown" class="topbar">
-        <div class="topbar-inner">
-            <div class="container">
-                <h3><a href="#">Project Name</a></h3>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Project name</a>
+            <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+            </div><!--/.nav-collapse -->
 
-                <form class="navbar-form pull-right" action="/i18n/setlang/" method="post">
-                    {% csrf_token %}
-                    {% get_current_language as LANGUAGE_CODE %}
-                    <select class="language" name="language">
-                        {% get_language_info_list for LANGUAGES as languages %}
-                        {% for language in languages %}
-                            <option class="options" value="{{ language.code }}" {% ifequal language.code LANGUAGE_CODE %}selected{% endifequal %}>{{ language.name_local }}</option>
-                        {% endfor %}
-                    </select>
-                    <input class="btn primary" type="submit" value="Go" />
-                </form>
+            <form class="navbar-form pull-right" action="/i18n/setlang/" method="post">
+                {% csrf_token %}
+                {% get_current_language as LANGUAGE_CODE %}
+                <select class="language" name="language">
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option class="options" value="{{ language.code }}" {% ifequal language.code LANGUAGE_CODE %}selected{% endifequal %}>{{ language.name_local }}</option>
+                    {% endfor %}
+                </select>
+                <input class="btn" type="submit" value="Go" />
+            </form>
 
-                <form class="navbar-form pull-right" action="/search/">
-                    <input id="id_q" type="text" class="input-medium search-query" name="q" placeholder="Search">
-                </form>
-            </div>
-        </div><!-- /topbar-inner -->
-    </div><!-- /topbar -->
+
+            <form class="navbar-form pull-right" action="/search/">
+                <input id="id_q" type="text" class="input-medium search-query" name="q">
+                <button type="submit" class="btn">Search <i class="icon-search"></i></button>
+            </form>
+
+
+        </div>
+    </div>
 </div>
-
-
-
 
 <div class="container">
 
     <div class="container-fluid">
-        <div class="content">
-            {% block content %}
+        <div class="row-fluid">
+            <div class="span10">
+                {% block content %}
 
-            {% endblock %}
-        </div>
-        <div class="sidebar">
-            {% block sidebar %}
+                {% endblock %}
+            </div>
+            <div class="span2">
+                {% block sidebar %}
 
-            {% endblock %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 </div> <!-- /container -->
