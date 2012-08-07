@@ -1,6 +1,9 @@
 import random
+from django.contrib.webdesign.lorem_ipsum import words, sentence, paragraphs
 from django.template.defaultfilters import slugify
 from django.test import TestCase
+
+from pressroom.models import Article
 
 class PressroomTests(TestCase):
     def test_environment(self):
