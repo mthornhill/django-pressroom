@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-07 16:00-0300\n"
+"POT-Creation-Date: 2012-08-07 20:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "A parte do título que é usada na URL"
 
 #: models.py:38
 msgid "A single paragraph summary or preview of the article."
-msgstr "Um parágrafo simples que descreve o artigo"
+msgstr "Um parágrafo simples que descreve a matéria"
 
 #: models.py:39
 msgid "body text"
@@ -88,12 +88,12 @@ msgstr "criado"
 
 #: models.py:64
 msgid "article"
-msgstr "artigo"
+msgstr "matéria"
 
 #: models.py:65
 #, fuzzy
 msgid "articles"
-msgstr "artigos"
+msgstr "matérias"
 
 #: models.py:85 models.py:98
 msgid "document"
