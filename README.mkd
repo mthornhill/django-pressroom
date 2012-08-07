@@ -1,0 +1,51 @@
+# Pressroom
+
+Simple article management for the Django web framework.
+
+This project is a fork of the project found on http://django-pressroom.googlecode.com , with some bug fixes and added internationalization
+
+I believe that github is a service more appropriate than the google code, further increasing the chances of other people to contribute to him, Even the original authors are invited to help work on it =)
+
+## Installation
+
+Install with pip
+
+    pip install -e git+git://github.com/petry/django-pressroom.git#egg=django-pressroom
+
+## Tracking the Development Version
+
+The current development version of Pressroom can be checked out via Subversion from the project site using the following command:
+
+    git clone git@github.com:petry/django-pressroom.git
+
+
+
+
+## Configure Your Django Settings
+
+Add 'pressroom' to your INSTALLED_APPS setting:
+
+    INSTALLED_APPS = (
+         # ...other installed applications,
+         'photologue',
+         'pressroom',
+    )
+
+*Confirm that your [MEDIA|STATIC]_ROOT,  and [MEDIA|STATIC]_URL settings are correct.*
+
+## Sync Your Database
+
+Run the Django 'syncdb' command to create the appropriate tables. 
+
+
+## Instant Pressroom
+
+To use the included pressroom templates and views you need to first add pressroom to your projects urls.py file.
+Note: django-photologue (http://code.google.com/p/django-photologue/ or https://github.com/petry/django-photologue) is a dependancy of pressroom
+
+    # urls.py:
+    urlpatterns += patterns('',
+        (r'^admin/(.*)', admin.site.root),
+        (r'^pressroom/', include('pressroom.urls')),
+        (r'^photologue/', include('photologue.urls')),
+    )

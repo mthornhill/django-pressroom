@@ -1,0 +1,22 @@
+{% extends "base_site.html" %}
+
+{% block title %}Recent News{% endblock %}
+
+{% block content %}
+{% if articles %}
+    {% for article in articles %}
+    <div class="article">
+        <h1><a href="{{ article.get_absolute_url }}">{{ article.headline }}</a></h1>
+        <div class="article-summary">{{ article.summary }}</div>        
+        <div class="article-body">{{ article.body|truncatewords:20 }}...</div>
+        <div class="article-pubdate">{{ article.pub_date|date:"F j, Y" }}</div>
+    </div>
+    {% endfor %}
+{% else %}
+<p>No news articles were found.</p>
+{% endif %}
+
+{% endblock %}
+
+
+

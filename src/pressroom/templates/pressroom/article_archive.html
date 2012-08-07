@@ -25,12 +25,14 @@
 
 {% block date_drill_down %}
     {% if date_list %}
-    <h2>Archive {{ year }}</h2>
-    <ul class="article-archive">
-        {% for date in date_list %}
-            <li><a href="{% url pr-article-archive-year date.year %}">{{ date|date:"Y" }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="well">
+        <h2>Archive {{ year }}</h2>
+        <ul class="article-archive">
+            {% for date in date_list %}
+                <li><a href="{% url pr-article-archive-year date.year %}">{{ date|date:"Y" }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endif %}
 {% endblock %}
 

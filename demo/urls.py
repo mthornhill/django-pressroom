@@ -4,6 +4,8 @@ from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 admin.autodiscover()
 
 from ajax_select import urls as ajax_select_urls
@@ -45,3 +47,5 @@ try:
 except ImportError, e:
     # haystack is optional
     pass
+
+urlpatterns += staticfiles_urlpatterns()

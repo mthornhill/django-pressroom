@@ -1,0 +1,19 @@
+<div class="article well">
+    <div class="article-pubdate">{{ article.pub_date|date:"M d Y" }}</div>
+    <h3>
+        <a href="{{ article.get_absolute_url }}">{{ article.headline }}</a>
+    </h3>
+    <p class="article-summary">
+        {% if article.summary %}
+            {{ article.summary|safe }}
+        {% else %}
+            {{ article.body|safe|truncatewords_html:50 }}
+        {% endif %}
+    </p>
+
+    {% if article.photos.all %}
+        <div class="article-photos">
+            {% include "pressroom/includes/photo_snippet.html" with photos=article.photos.all %}
+        </div>
+    {% endif %}
+</div>

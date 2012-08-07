@@ -1,21 +1,30 @@
+.topbar select:-moz-placeholder {
+    color: #E6E6E6;
+}
+.topbar select {
+    -moz-transition: none 0s ease 0s;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #111111;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1;
+    padding: 4px 9px;
+}
+
+
 .articles {}
 .article {
     padding: 5px;
     padding-bottom: 50px;
     margin-bottom: 10px;
+    clear: both;
 }
 .article-wrapper {}
 .article-summary {}
-.article-photos {
-    width: 180px;
-    float: right;
-}
-.article-photo {
-    float: right;
-    margin: 5px;
-    padding: 5px;
-    text-align: center;
-}
+.article-photos {}
+.article-photo {}
 
 .article-body {}
 .article-author {}
