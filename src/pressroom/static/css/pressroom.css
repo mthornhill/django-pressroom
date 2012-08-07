@@ -23,16 +23,8 @@
 }
 .article-wrapper {}
 .article-summary {}
-.article-photos {
-    width: 180px;
-    float: right;
-}
-.article-photo {
-    float: right;
-    margin: 5px;
-    padding: 5px;
-    text-align: center;
-}
+.article-photos {}
+.article-photo {}
 
 .article-body {}
 .article-author {}
