@@ -1,9 +1,0 @@
-<ul class="media-grid">
-    {%  for p in article.photos.all %}
-    <li>
-        <a href="#">
-            <img class="thumbnail" src="{{ p.get_thumbnail_url }}" alt="{{ p.caption }}">
-        </a>
-    </li>
-    {% endfor %}
-</ul>

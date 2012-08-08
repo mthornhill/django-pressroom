@@ -60,7 +60,9 @@ class Article(models.Model):
     class Meta:
         ordering = ['-pub_date']
         get_latest_by = 'pub_date'
-    
+        verbose_name = _('article')
+        verbose_name_plural = _('articles')
+
     def __unicode__(self):
         return self.headline
 
@@ -92,6 +94,9 @@ class Document(models.Model):
     class Meta:
         ordering = ['-pub_date']
         get_latest_by = 'pub_date'
+        verbose_name = _('document')
+        verbose_name_plural = _('documents')
+
 
     def __unicode__(self):
         return self.title
@@ -123,6 +128,9 @@ class Section(models.Model):
 
     class Meta:
         ordering = ['title']
+        verbose_name = _('section')
+        verbose_name_plural = _('sections')
+
 
     def __unicode__(self):
         return self.title

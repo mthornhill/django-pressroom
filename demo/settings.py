@@ -37,8 +37,9 @@ LANGUAGE_CODE = 'en'
 ugettext = lambda s: s
 
 LANGUAGES = (
-    ('ga', ugettext('Irish')),
     ('en', ugettext('English')),
+    ('ga', ugettext('Irish')),
+    ('pt-br', ugettext('Brazilian Portuguese')),
     )
 
 SITE_ID = 1
@@ -195,6 +196,3 @@ LOGGING = {
         },
     }
 }
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-

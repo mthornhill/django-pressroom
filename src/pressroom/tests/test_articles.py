@@ -1,7 +1,9 @@
 import random
 from django.contrib.webdesign.lorem_ipsum import words, sentence, paragraphs
 from django.template.defaultfilters import slugify
+from django.contrib.webdesign.lorem_ipsum import paragraphs, sentence, words
 from django.test import TestCase
+from pressroom.models import Article
 
 from pressroom.models import Article
 
