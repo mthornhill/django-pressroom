@@ -1,4 +1,5 @@
 Pressroom
+"""""""""
 
 Simple article management for the Django web framework.
 
@@ -8,7 +9,8 @@ Installation
 
 Offical releases are available from http://pypi.python.org/pypi
 
-easy_install django-pressroom
+    easy_install django-pressroom
+
 
 Tracking the Development Version
 --------------------------------
@@ -27,8 +29,8 @@ If you wish to contribute to pressroom, here is how to set up your development e
     bin/django syncdb
     bin/django runscript load_data -v2
     bin/django runserver
-    
-    browse to http://localhost:8000/
+
+browse to http://localhost:8000/
 
 
 Configure Your Django Settings
@@ -42,16 +44,16 @@ Add 'pressroom' to your INSTALLED_APPS setting:
          'pressroom',
     )
 
-*** Confirm that your MEDIA_ROOT and MEDIA_URL settings are correct. ***
+_Confirm that your MEDIA_ROOT, MEDIA_URL, STATIC_ROOT, STATIC_URL settings are correct._
 
 Sync Your Database
 ------------------
 
-Run the Django 'syncdb' command to create the appropriate tables. 
+Run the Django `syncdb` command to create the appropriate tables.
 
 
 Instant Pressroom
----------------------
+=================
 
 To use the included pressroom templates and views you need to first add pressroom to your projects urls.py file.
 Note: django-photologue (http://code.google.com/p/django-photologue/) is a dependancy of pressroom
