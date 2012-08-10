@@ -1,10 +1,12 @@
 {% extends "base_site.html" %}
 {% load pressroom_tags %}
 {% load endless %}
+{% load i18n %}
 
-{% block title %}Latest Articles{% endblock %}
+{% block title %}{% trans "Latest Articles" %}{% endblock %}
 
 {% block content %}
+
 <h2>Blog</h2>
 {% if latest %}
     {% paginate 10 latest %}

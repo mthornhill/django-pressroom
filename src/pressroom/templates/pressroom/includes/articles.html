@@ -1,6 +1,7 @@
+{% load i18n %}
 {% if articles %}
 <div class="articles">
-	<h2>Articles</h2>
+	<h2>{% trans "Articles" %}</h2>
 	<ol>
 		{% for a in articles %}
 			<li>
