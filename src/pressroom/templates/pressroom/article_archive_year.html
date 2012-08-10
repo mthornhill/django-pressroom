@@ -1,8 +1,9 @@
 {% extends "pressroom/article_archive.html" %}
+{% load i18n %}
 {% load endless %}
-{% block title %}Articles for {{ year }}{% endblock %}
+{% block title %}{% trans "Articles for" %} {{ year }}{% endblock %}
 {% block content %}
-    <h2>{% block archive-title %}Articles for {{ year }}{% endblock %}</h2>
+    <h2>{% block archive-title %}{% trans "Articles for" %} {{ year }}{% endblock %}</h2>
     {% if object_list %}
         {% paginate 10 object_list %}
         {% for article in object_list %}
@@ -12,7 +13,7 @@
             {% show_pages %}
         </div>
     {% else %}
-    <p>No articles were found.</p>
+    <p>{% trans "No articles were found." %}</p>
     {% endif %}
 {% endblock %}
 {% block date_drill_down %}

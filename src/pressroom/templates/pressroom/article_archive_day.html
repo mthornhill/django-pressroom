@@ -1,3 +1,4 @@
 {% extends "pressroom/article_archive_year.html" %}
-{% block title %}Articles for {{ day|date }}{% endblock %}
-{% block archive-title %}Articles for {{ day|date }}{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Articles for" %} {{ day|date }}{% endblock %}
+{% block archive-title %}{% trans "Articles for" %} {{ day|date }}{% endblock %}

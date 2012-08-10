@@ -42,6 +42,11 @@ LANGUAGES = (
     ('pt-br', ugettext('Brazilian Portuguese')),
     )
 
+LOCALE_PATHS = (
+    os.path.join(DIRNAME, 'conf/locale'),
+)
+
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -70,11 +75,6 @@ STATIC_ROOT = os.path.realpath(os.path.join(DIRNAME, 'static/'))
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
-
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

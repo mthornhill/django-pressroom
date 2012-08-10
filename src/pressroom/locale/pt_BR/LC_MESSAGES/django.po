@@ -1,117 +1,216 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the Django package.
 #
-#, fuzzy
+# Translator:
+# Marcos Daniel Petry <marcospetry@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Django\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-07 20:24+0100\n"
+"POT-Creation-Date: 2012-08-10 04:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Marcos Daniel Petry <marcospetry@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: models.py:35
+#: models.py:34
 msgid "headline"
 msgstr "titulo"
 
-#: models.py:36 models.py:88 models.py:124
+#: models.py:35 models.py:87 models.py:123
 msgid "A \"Slug\" is a unique URL-friendly title for an object."
 msgstr "A parte do título que é usada na URL"
 
-#: models.py:38
+#: models.py:37
 msgid "A single paragraph summary or preview of the article."
-msgstr "Um parágrafo simples que descreve a matéria"
+msgstr "Um parágrafo simples que descreve a artigo"
 
-#: models.py:39
+#: models.py:38
 msgid "body text"
 msgstr "texto"
 
-#: models.py:40
+#: models.py:39
 msgid "author"
 msgstr "autor"
 
-#: models.py:41
+#: models.py:40
 msgid "publish date"
 msgstr "data de publicação"
 
-#: models.py:42
+#: models.py:41
 msgid "publish on site"
 msgstr "publicar no site"
 
-#: models.py:43
+#: models.py:42
 msgid "Articles will not appear on the site until their \"publish date\"."
 msgstr "Artigos não irão aparecer no site até a \"data de publicação\"."
 
-#: models.py:44 models.py:133
+#: models.py:43 models.py:132
 msgid "sections"
 msgstr "seções"
 
-#: models.py:45
+#: models.py:44
 msgid "photos"
 msgstr "fotos"
 
-#: models.py:46 models.py:99
+#: models.py:45 models.py:98
 msgid "documents"
 msgstr "documentos"
 
-#: models.py:47
+#: models.py:46
 msgid "enable comments"
 msgstr "habilitar comentários"
 
-#: models.py:50
+#: models.py:49
 msgid "language"
 msgstr "lingua"
 
-#: models.py:51
+#: models.py:50
 msgid "translation_of"
 msgstr "tradução de"
 
-#: models.py:53 models.py:91
+#: models.py:52 models.py:90
 msgid "modified"
 msgstr "modificado"
 
-#: models.py:54
+#: models.py:53
 msgid "modified_by"
 msgstr "modificado por"
 
-#: models.py:55 models.py:92
+#: models.py:54 models.py:91
 msgid "created"
 msgstr "criado"
 
-#: models.py:64
+#: models.py:63
 msgid "article"
-msgstr "matéria"
+msgstr "artigo"
 
-#: models.py:65
-#, fuzzy
+#: models.py:64
 msgid "articles"
-msgstr "matérias"
+msgstr "artigos"
 
-#: models.py:85 models.py:98
+#: models.py:84 models.py:97
 msgid "document"
 msgstr "documento"
 
-#: models.py:86
+#: models.py:85
 msgid "date published"
 msgstr "data de publicação"
 
-#: models.py:87 models.py:123
+#: models.py:86 models.py:122
 msgid "title"
 msgstr "título"
 
-#: models.py:89
+#: models.py:88
 msgid "summary"
 msgstr "resumo"
 
-#: models.py:132
-#, fuzzy
+#: models.py:131
 msgid "section"
 msgstr "seção"
+
+#: templates/pressroom/article_archive.html:6
+msgid "Latest Articles"
+msgstr "Últimos Artigos"
+
+#: templates/pressroom/article_archive_day.html:3
+#: templates/pressroom/article_archive_day.html:4
+#: templates/pressroom/article_archive_month.html:3
+#: templates/pressroom/article_archive_month.html:4
+#: templates/pressroom/article_archive_year.html:4
+#: templates/pressroom/article_archive_year.html:6
+msgid "Articles for"
+msgstr "Artigos por"
+
+#: templates/pressroom/article_archive_year.html:16
+#: templates/pressroom/article_list.html:17
+msgid "No articles were found."
+msgstr "Nenhum artigo foi encontrado."
+
+#: templates/pressroom/article_detail.html:23
+msgid "Related Documents"
+msgstr "Documentos relacionados"
+
+#: templates/pressroom/article_detail.html:39
+msgid "Comments"
+msgstr "Comentários"
+
+#: templates/pressroom/article_detail.html:43
+msgid "Add comment"
+msgstr "Adicionar comentário"
+
+#: templates/pressroom/article_detail.html:52
+msgid "Translations"
+msgstr "Traduções"
+
+#: templates/pressroom/article_list.html:4
+#: templates/pressroom/article_list.html:8
+msgid "All Articles"
+msgstr "Todos Artigos"
+
+#: templates/pressroom/index.html:4
+msgid "Recent News"
+msgstr "Últimas Notícias"
+
+#: templates/pressroom/index.html:17
+msgid "No news articles were found"
+msgstr "Nenhuma notícia foi encontrada"
+
+#: templates/pressroom/includes/articles.html:4
+msgid "Articles"
+msgstr "Artigos"
+
+#: templates/pressroom/includes/sections.html:5
+msgid "Sections"
+msgstr "Seções"
+
+#: templates/pressroom/includes/sections.html:8
+msgid "Archive"
+msgstr "Arquivo"
+
+#: templates/search/search.html:6
+msgid "Search"
+msgstr "Busca"
+
+#: templates/search/search.html:20
+msgid "Results"
+msgstr "Resultados"
+
+#: templates/search/search.html:26
+msgid "No results found"
+msgstr "Nenhum resultado encontrado"
+
+#: templates/search/search.html:31
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/search/search.html:33
+msgid "Next"
+msgstr "Próximo"
+
+#: templates/search/search.html:48
+msgid "Narrow Search"
+msgstr "Refinar Busca"
+
+#: templates/search/search.html:49
+msgid "Clear"
+msgstr "Limpar"
+
+#: templates/search/search.html:50
+msgid "By Author"
+msgstr "Por Autor"
+
+#: templates/search/search.html:59
+msgid "No author facets"
+msgstr "Nenhum autor encontrado"
+
+#: templates/search/search.html:65
+msgid "By Section"
+msgstr "Por Seção"
+
+#: templates/search/search.html:73
+msgid "No section facets."
+msgstr "Nenhuma seção encontrada."

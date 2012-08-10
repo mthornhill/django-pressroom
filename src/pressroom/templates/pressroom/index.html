@@ -1,6 +1,7 @@
 {% extends "base_site.html" %}
+{% load i18n %}
 
-{% block title %}Recent News{% endblock %}
+{% block title %}{% trans "Recent News" %}{% endblock %}
 
 {% block content %}
 {% if articles %}
@@ -13,7 +14,7 @@
     </div>
     {% endfor %}
 {% else %}
-<p>No news articles were found.</p>
+<p>{% trans "No news articles were found" %}.</p>
 {% endif %}
 
 {% endblock %}

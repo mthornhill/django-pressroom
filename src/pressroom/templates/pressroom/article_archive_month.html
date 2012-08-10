@@ -1,6 +1,7 @@
 {% extends "pressroom/article_archive_year.html" %}
-{% block title %}Articles for {{ month|date:"F Y" }}{% endblock %}
-{% block archive-title %}Articles for {{ month|date:"F Y" }}{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Articles for" %} {{ month|date:"F Y" }}{% endblock %}
+{% block archive-title %}{% trans "Articles for" %} {{ month|date:"F Y" }}{% endblock %}
 {% block date_drill_down %}
     {% if date_list %}
     <h2>Archive {{ year }}</h2>

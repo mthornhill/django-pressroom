@@ -1,9 +1,11 @@
+{% load i18n %}
 {% if sections %}
 <div class="sections">
-	<h2>Sections</h2>
+
+	<h2>{% trans "Sections" %}</h2>
 	<ul>
         <li>
-            <a href="{% url pr-article-archive %}">Archive</a>
+            <a href="{% url pr-article-archive %}">{% trans "Archive" %}</a>
         </li>
 		{% for s in sections %}
 			<li>

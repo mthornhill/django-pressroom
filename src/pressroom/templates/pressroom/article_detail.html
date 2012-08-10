@@ -1,4 +1,5 @@
 {% extends "pressroom/article_archive.html" %}
+{% load i18n %}
 {% load comments %}
 {% load pressroom_tags %}
 
@@ -19,7 +20,7 @@
 
     {% if object.documents.all %}
         <div class="documents">
-            <h2>Related Documents</h2>
+            <h2>{% trans "Related Documents" %}</h2>
             <ul>
             {% for doc in object.documents.all %}
                 <li>
@@ -35,11 +36,11 @@
         {% get_comment_count for object as comment_count %}.
 
         {% if comment_count > 0 %}
-            <h3>Comments</h3>
+            <h3>{% trans "Comments" %}</h3>
             {% render_comment_list for object %}
         {% endif %}
 
-        <h3>Add comment</h3>
+        <h3>{% trans "Add comment" %}</h3>
         {% render_comment_form for object %}
     {% endif %}
 
@@ -48,7 +49,7 @@
 
 {% block sidebar %}
     {% if object.translations.all or object.translation_of %}
-        <h2>Translations</h2>
+        <h2>{% trans "Translations" %}</h2>
         <ul>
             {% for t in object.translations.all %}
                 <li><a href="{{ t.get_absolute_url }}">{{ t.headline }} ({{ t.language }})</a></li>
