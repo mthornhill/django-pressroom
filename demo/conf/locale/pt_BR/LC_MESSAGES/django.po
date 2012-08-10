@@ -1,0 +1,49 @@
+# This file is distributed under the same license as the Django package.
+#
+# Translator:
+# Marcos Daniel Petry <marcospetry@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: Django\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-10 04:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcos Daniel Petry <marcospetry@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: settings.py:40
+msgid "English"
+msgstr "Inglês"
+
+#: settings.py:41
+msgid "Irish"
+msgstr "Irlandês"
+
+#: settings.py:42
+msgid "Brazilian Portuguese"
+msgstr "Português (Brasil)"
+
+#: templates/base.html:27
+msgid "Project name"
+msgstr "Nome do Projeto"
+
+#: templates/base.html:30
+msgid "Home"
+msgstr "Inicio"
+
+#: templates/base.html:31
+msgid "About"
+msgstr "Sobre"
+
+#: templates/base.html:32
+msgid "Contact"
+msgstr "Contato"
+
+#: templates/base.html:51
+msgid "Search"
+msgstr "Busca"

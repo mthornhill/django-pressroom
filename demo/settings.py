@@ -42,6 +42,11 @@ LANGUAGES = (
     ('pt-br', ugettext('Brazilian Portuguese')),
     )
 
+LOCALE_PATHS = (
+    os.path.join(DIRNAME, 'conf/locale'),
+)
+
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
