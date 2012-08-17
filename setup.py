@@ -10,7 +10,7 @@ setup(
     url = 'http://code.google.com/p/django-pressroom/',
     license = 'BSD',
     description = "A pressroom application for django.",
-    long_description = read('README'),
+    long_description = read('README.md'),
 
     author = 'Justin Driscoll, Michael Thornhill',
     author_email = 'michael@maithu.com',
@@ -24,7 +24,9 @@ setup(
                         'django-ajax-selects',
                         'django-endless-pagination',
                         'django-imperavi',
-                        'django-reversion'],
+                        'django-reversion',
+                        'django-taggit'
+    ],
     include_package_data=True,
     classifiers = [
         'Development Status :: 4 - Beta',
