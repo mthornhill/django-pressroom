@@ -1,8 +1,14 @@
 import os
 DIRNAME = os.path.dirname(__file__)
 DEBUG=True
-DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = '/tmp/pressroom.db'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/tmp/pressroom.db',
+        },
+    }
+
 
 MEDIA_ROOT = os.path.realpath(os.path.join(DIRNAME, 'tests', 'media/'))
 MEDIA_URL = '/site_media/'
@@ -17,6 +23,10 @@ INSTALLED_APPS = ['django.contrib.admin',
                   'django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
+                  'taggit',
                   'photologue',
                   'pressroom', ]
 ROOT_URLCONF = 'pressroom.tests.urls'
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
