@@ -3,6 +3,8 @@
 
 Simple article management for the Django web framework.
 
+[![Build Status](https://secure.travis-ci.org/petry/django-pressroom.png?branch=master)](http://travis-ci.org/petry/django-pressroom)
+
 
 ## Installation
 
