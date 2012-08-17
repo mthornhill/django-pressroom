@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     # ...other installed applications,
     'photologue',
     'pressroom',
+    'tastypie',
 )
 ```
 
@@ -61,6 +62,7 @@ Run the Django `syncdb` command to create the appropriate tables.
 
 To use the included pressroom templates and views you need to first add pressroom to your projects urls.py file.
 Note: django-photologue (http://code.google.com/p/django-photologue/) is a dependancy of pressroom
+Note: django-tastypie is a dependancy of pressroom
 
 ```python
 # urls.py:
