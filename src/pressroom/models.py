@@ -40,7 +40,7 @@ class Article(models.Model):
     pub_date = models.DateTimeField(_("publish date"), default=datetime.now)
     publish = models.BooleanField(_("publish on site"), default=True,
         help_text=_('Articles will not appear on the site until their "publish date".'))
-    sections = models.ManyToManyField('Section', related_name='articles', verbose_name=_('sections'))
+    sections = models.ManyToManyField('Section', related_name='articles', verbose_name=_('sections'), null=True, blank=True)
     photos = models.ManyToManyField(Photo, related_name='articles', null=True, blank=True, verbose_name=_('photos'))
     documents = models.ManyToManyField('Document', related_name='articles', null=True, blank=True, verbose_name=_('documents'))
     enable_comments = models.BooleanField(_('enable comments'),default=True)
