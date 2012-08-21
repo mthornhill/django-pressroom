@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-21 09:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : "
+"4)\n"
+
+#: models.py:34
+msgid "headline"
+msgstr ""
+
+#: models.py:35 models.py:87 models.py:123
+msgid "A \"Slug\" is a unique URL-friendly title for an object."
+msgstr ""
+
+#: models.py:37
+msgid "A single paragraph summary or preview of the article."
+msgstr ""
+
+#: models.py:38
+msgid "body text"
+msgstr ""
+
+#: models.py:39
+msgid "author"
+msgstr ""
+
+#: models.py:40
+msgid "publish date"
+msgstr ""
+
+#: models.py:41
+msgid "publish on site"
+msgstr ""
+
+#: models.py:42
+msgid "Articles will not appear on the site until their \"publish date\"."
+msgstr ""
+
+#: models.py:43 models.py:132
+msgid "sections"
+msgstr ""
+
+#: models.py:44
+msgid "photos"
+msgstr ""
+
+#: models.py:45 models.py:98
+msgid "documents"
+msgstr ""
+
+#: models.py:46
+msgid "enable comments"
+msgstr ""
+
+#: models.py:49
+msgid "language"
+msgstr ""
+
+#: models.py:50
+msgid "translation_of"
+msgstr ""
+
+#: models.py:52 models.py:90
+msgid "modified"
+msgstr ""
+
+#: models.py:53
+msgid "modified_by"
+msgstr ""
+
+#: models.py:54 models.py:91
+msgid "created"
+msgstr ""
+
+#: models.py:63
+msgid "article"
+msgstr ""
+
+#: models.py:64
+msgid "articles"
+msgstr ""
+
+#: models.py:84 models.py:97
+msgid "document"
+msgstr ""
+
+#: models.py:85
+msgid "date published"
+msgstr ""
+
+#: models.py:86 models.py:122
+msgid "title"
+msgstr ""
+
+#: models.py:88
+msgid "summary"
+msgstr ""
+
+#: models.py:131
+msgid "section"
+msgstr ""
+
+#: templates/pressroom/article_archive.html:6
+msgid "Latest Articles"
+msgstr ""
+
+#: templates/pressroom/article_archive_day.html:3
+#: templates/pressroom/article_archive_day.html:4
+#: templates/pressroom/article_archive_month.html:3
+#: templates/pressroom/article_archive_month.html:4
+#: templates/pressroom/article_archive_year.html:4
+#: templates/pressroom/article_archive_year.html:6
+msgid "Articles for"
+msgstr ""
+
+#: templates/pressroom/article_archive_year.html:16
+#: templates/pressroom/article_list.html:17
+msgid "No articles were found."
+msgstr ""
+
+#: templates/pressroom/article_detail.html:23
+msgid "Related Documents"
+msgstr ""
+
+#: templates/pressroom/article_detail.html:39
+msgid "Comments"
+msgstr ""
+
+#: templates/pressroom/article_detail.html:43
+msgid "Add comment"
+msgstr ""
+
+#: templates/pressroom/article_detail.html:52
+msgid "Translations"
+msgstr ""
+
+#: templates/pressroom/article_list.html:4
+#: templates/pressroom/article_list.html:8
+msgid "All Articles"
+msgstr ""
+
+#: templates/pressroom/index.html:4
+msgid "Recent News"
+msgstr ""
+
+#: templates/pressroom/index.html:17
+msgid "No news articles were found"
+msgstr ""
+
+#: templates/pressroom/includes/articles.html:4
+msgid "Articles"
+msgstr ""
+
+#: templates/pressroom/includes/sections.html:5
+msgid "Sections"
+msgstr ""
+
+#: templates/pressroom/includes/sections.html:8
+msgid "Archive"
+msgstr ""
+
+#: templates/search/search.html:6
+msgid "Search"
+msgstr ""
+
+#: templates/search/search.html:20
+msgid "Results"
+msgstr ""
+
+#: templates/search/search.html:26
+msgid "No results found"
+msgstr ""
+
+#: templates/search/search.html:31
+msgid "Previous"
+msgstr ""
+
+#: templates/search/search.html:33
+msgid "Next"
+msgstr ""
+
+#: templates/search/search.html:48
+msgid "Narrow Search"
+msgstr ""
+
+#: templates/search/search.html:49
+msgid "Clear"
+msgstr ""
+
+#: templates/search/search.html:50
+msgid "By Author"
+msgstr ""
+
+#: templates/search/search.html:59
+msgid "No author facets"
+msgstr ""
+
+#: templates/search/search.html:65
+msgid "By Section"
+msgstr ""
+
+#: templates/search/search.html:73
+msgid "No section facets."
+msgstr ""
