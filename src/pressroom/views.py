@@ -25,7 +25,6 @@ class CurrentLanguageMixin(object):
     From: http://martinogden.me/2011/03/27/quick-look-django-13-class-based-views/
     """
     date_field = 'published_at'
-    paginate_by = 10
     allow_empty = True
     queryset = Article.objects.get_published()
     month_format = "%m"
