@@ -32,8 +32,7 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
     headline = models.CharField(_("headline"),max_length=200)
-    slug = models.SlugField(help_text=_('A "Slug" is a unique URL-friendly title for an object.'),
-        unique_for_date="pub_date")
+    slug = AutoSlugField(populate_from=('headline',), help_text=_('A "Slug" is a unique URL-friendly title for an object.'))
     summary = models.TextField(help_text=_("A single paragraph summary or preview of the article."), default=u"", null=True, blank=True)
     body = models.TextField(_("body text"))
     author = models.CharField(_("author"), max_length=100)
