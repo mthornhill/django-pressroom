@@ -1,9 +1,6 @@
 from django.contrib import admin
 from django.conf import settings
 from models import Article, Document, Section
-from imperavi.admin import ImperaviAdmin
-from ajax_select import make_ajax_form
-from ajax_select.admin import AjaxSelectAdmin
 
 class ArticleAdminBase(admin.ModelAdmin):
     list_display = ('headline', 'author', 'language', 'pub_date', 'publish', 'modified_by')
@@ -38,6 +35,10 @@ class SectionAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
 if 'imperavi' in settings.INSTALLED_APPS and 'ajax_select' in settings.INSTALLED_APPS:
+    from imperavi.admin import ImperaviAdmin
+    from ajax_select import make_ajax_form
+    from ajax_select.admin import AjaxSelectAdmin
+
     class ArticleAdmin(ArticleAdminBase, ImperaviAdmin, AjaxSelectAdmin):
         form = make_ajax_form(
             model=Article,
