@@ -1,11 +1,4 @@
-from datetime import datetime
-
-from django.conf import settings
-from django.conf.urls.defaults import *
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from django.views.generic.dates import ArchiveIndexView, YearArchiveView, DayArchiveView, MonthArchiveView
-
+from django.conf.urls import *
 from models import Article
 from feeds import LatestEntries
 from pressroom.views import ArticleYearArchiveView, ArticleMonthArchiveView, ArticleDayArchiveView, ArticleDetailView
