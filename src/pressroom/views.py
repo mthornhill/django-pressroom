@@ -8,6 +8,7 @@ from django.views.generic import dates
 from models import Section
 from pressroom.models import Article
 
+
 class SectionListView(ListView):
     template_name = "pressroom/view_section.html"
     def get_queryset(self):
@@ -16,6 +17,7 @@ class SectionListView(ListView):
         if hasattr(self.request, 'LANGUAGE_CODE'):
             articles = articles.filter(language=self.request.LANGUAGE_CODE)
         return articles
+
 
 class CurrentLanguageMixin(object):
     """
@@ -36,19 +38,35 @@ class CurrentLanguageMixin(object):
 
         return super(CurrentLanguageMixin, self).get_queryset()
 
+
 class ArticleArchiveIndexView(CurrentLanguageMixin, dates.ArchiveIndexView):
     pass
+
 
 class ArticleYearArchiveView(CurrentLanguageMixin, dates.YearArchiveView):
     pass
 
+
 class ArticleMonthArchiveView(CurrentLanguageMixin, dates.MonthArchiveView):
     pass
 
+
 class ArticleDayArchiveView(CurrentLanguageMixin, dates.DayArchiveView):
     pass
+
 
 class ArticleDetailView(DetailView):
     def get_queryset(self):
         # we allow viewing of any article no matter what the current language code
         return Article.objects.filter(publish=True)
+
+    def get_object(self, queryset=None):
+        article_object = super(ArticleDetailView, self).get_object(queryset)
+        if hasattr(self.request, 'LANGUAGE_CODE'):
+            if article_object.translation_of:
+                if article_object.translation_of.language == self.request.LANGUAGE_CODE:
+                    return article_object.translation_of
+            for translation in article_object.translations.all():
+                if translation.language == self.request.LANGUAGE_CODE:
+                    return translation
+        return article_object
